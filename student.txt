@@ -5,7 +5,7 @@ CREATE DATABASE fot;
 USE fot;
 SHOW TABLES;
 
-CREATE TABLE student (student_id CHAR(12) PRIMARY KEY,NIC CHAR(12),firstname VARCHAR(20),lastname VARCHAR(20),course VARCHAR(3),phone_no INT,age INT,address VARCHAR(50),gender VARCHAR(10));
+CREATE TABLE student (student_id CHAR(12) PRIMARY KEY,NIC CHAR(12),firstname VARCHAR(20),lastname VARCHAR(20),course VARCHAR(3),phone_no char(10),age INT,address VARCHAR(300),gender VARCHAR(10));
 
 SHOW tables;
 +---------------+
@@ -15,19 +15,19 @@ SHOW tables;
 +---------------+
 
 DESC student;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| student_id | char(12)    | NO   | PRI | NULL    |       |
-| NIC        | char(12)    | YES  |     | NULL    |       |
-| firstname  | varchar(20) | YES  |     | NULL    |       |
-| lastname   | varchar(20) | YES  |     | NULL    |       |
-| course     | varchar(3)  | YES  |     | NULL    |       |
-| phone_no   | int         | YES  |     | NULL    |       |
-| age        | int         | YES  |     | NULL    |       |
-| address    | varchar(50) | YES  |     | NULL    |       |
-| gender     | varchar(10) | YES  |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | char(12)     | NO   | PRI | NULL    |       |
+| NIC        | char(12)     | YES  |     | NULL    |       |
+| firstname  | varchar(20)  | YES  |     | NULL    |       |
+| lastname   | varchar(20)  | YES  |     | NULL    |       |
+| course     | varchar(3)   | YES  |     | NULL    |       |
+| phone_no   | char(10)     | YES  |     | NULL    |       |
+| age        | int          | YES  |     | NULL    |       |
+| address    | varchar(300) | YES  |     | NULL    |       |
+| gender     | varchar(10)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
 
 
 INSERT INTO student VALUES
@@ -45,20 +45,18 @@ INSERT INTO student VALUES
 
 
 SELECT * FROM student;
-+--------------+--------------+-----------+-------------+--------+-----------+------+--------------+--------+
-| student_id   | NIC          | firstname | lastname    | course | phone_no  | age  | address      | gender |
-+--------------+--------------+-----------+-------------+--------+-----------+------+--------------+--------+
-| TG/2023/0001 | 200319210901 | Amal      | Perera      | ICT    | 712345612 |   21 | Colombo      | Male   |
-| TG/2023/0002 | 200319210902 | Kavindu   | Silva       | ICT    | 723456723 |   22 | Galle        | Male   |
-| TG/2023/0003 | 200319210903 | Sajini    | Fernando    | ICT    | 734567834 |   20 | Matara       | Female |
-| TG/2023/0004 | 200319210904 | Nimesha   | Jayasinghe  | ICT    | 745678945 |   23 | Kandy        | Female |
-| TG/2023/0005 | 200319210905 | Tharindu  | Rajapaksha  | ICT    | 756789056 |   21 | Kurunegala   | Male   |
-| TG/2023/0006 | 200319210906 | Pasan     | Weerasinghe | ICT    | 767890167 |   22 | Colombo      | Male   |
-| TG/2023/0007 | 200319210907 | Ruwani    | Dissanayake | ICT    | 778901278 |   20 | Gampaha      | Female |
-| TG/2023/0008 | 200319210908 | Ishara    | Abeywardena | ICT    | 789012389 |   23 | Matale       | Female |
-| TG/2023/0009 | 200319210909 | Supun     | Bandara     | ICT    | 790123490 |   21 | Badulla      | Male   |
-| TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    | 701234501 |   22 | Hambantota   | Female |
-| TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    | 712348912 |   23 | Anuradhapura | Male   |
-+--------------+--------------+-----------+-------------+--------+-----------+------+--------------+--------+
-
-
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+| student_id   | NIC          | firstname | lastname    | course | phone_no   | age  | address      | gender |
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+| TG/2023/0001 | 200319210901 | Amal      | Perera      | ICT    | 0712345612 |   21 | Colombo      | Male   |
+| TG/2023/0002 | 200319210902 | Kavindu   | Silva       | ICT    | 0723456723 |   22 | Galle        | Male   |
+| TG/2023/0003 | 200319210903 | Sajini    | Fernando    | ICT    | 0734567834 |   20 | Matara       | Female |
+| TG/2023/0004 | 200319210904 | Nimesha   | Jayasinghe  | ICT    | 0745678945 |   23 | Kandy        | Female |
+| TG/2023/0005 | 200319210905 | Tharindu  | Rajapaksha  | ICT    | 0756789056 |   21 | Kurunegala   | Male   |
+| TG/2023/0006 | 200319210906 | Pasan     | Weerasinghe | ICT    | 0767890167 |   22 | Colombo      | Male   |
+| TG/2023/0007 | 200319210907 | Ruwani    | Dissanayake | ICT    | 0778901278 |   20 | Gampaha      | Female |
+| TG/2023/0008 | 200319210908 | Ishara    | Abeywardena | ICT    | 0789012389 |   23 | Matale       | Female |
+| TG/2023/0009 | 200319210909 | Supun     | Bandara     | ICT    | 0790123490 |   21 | Badulla      | Male   |
+| TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    | 0701234501 |   22 | Hambantota   | Female |
+| TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    | 0712348912 |   23 | Anuradhapura | Male   |
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
