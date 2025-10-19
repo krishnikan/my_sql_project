@@ -17,4 +17,16 @@ INSERT INTO Users (User_id, Username, Password, Role) VALUES
 ('U007', 'kasun', 'Kas#3344', 'Technical_Officer'),
 ('U008', 'madhu', 'Mad#5566', 'Technical_Officer'),
 ('U009', 'saman', 'Sam@7788', 'Technical_Officer'),
-('U010', 'naveen', 'Nav@9900', 'Technical_Officer');
+('U010', 'naveen', 'Nav@9900', 'Technical_Officer'),
+('U011', 'Amal', 'Amal@0001', 'Student'),
+('U012', 'Kavindu','Kavindu@0002', 'Student'),
+('U013', 'Sajini','Sajini@0003', 'Student'),
+('U014', 'Nimesha','Nimesha@0004', 'Student'),
+('U015', 'Tharindu','Tharindu@0005', 'Student'),
+('U016', 'Pasan','Pasan@0006', 'Student'),
+('U017', 'Ruwani','Ruwani@0007', 'Student'),
+('U018', 'Ishara','Ishara@0008', 'Student'),
+('U019', 'Supun','Supun@0009', 'Student'),
+('U020','Chathuri','Chathuri@0010', 'Student'),
+('U021','Lakshan','Lakshan@0011', 'Student'),
+('U022','Subash','subash@1234', 'Dean');
