@@ -106,3 +106,88 @@ add column CA_Final int after mid_t;
 
  alter table tms1233
   add column CA_Final int after mid_t;
+
+
+  update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0002";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0003";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0004";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+    where student_id="TG/2023/0005";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0006";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+    where student_id="TG/2023/0007";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0008";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0009";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0010";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0011";
+
+
+mysql> select * from eng1222;
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    60 |         70 |  NULL |    65 |       65 |  NULL |    88 |       76.5 | NULL  |
+| TG/2023/0002 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | NULL  |
+| TG/2023/0003 |    89 |         96 |  NULL |    68 |       84 |  NULL |    56 |         70 | NULL  |
+| TG/2023/0004 |    59 |         98 |  NULL |    66 |       74 |  NULL |    67 |       70.5 | NULL  |
+| TG/2023/0005 |    72 |         64 |  NULL |    89 |       75 |  NULL |    78 |       76.5 | NULL  |
+| TG/2023/0006 |    81 |         63 |  NULL |    69 |       71 |  NULL |    74 |       72.5 | NULL  |
+| TG/2023/0007 |    67 |         98 |  NULL |    65 |       77 |  NULL |    91 |         84 | NULL  |
+| TG/2023/0008 |    74 |         63 |  NULL |    78 |       72 |  NULL |    59 |       65.5 | NULL  |
+| TG/2023/0009 |    65 |         87 |  NULL |    68 |       73 |  NULL |    79 |         76 | NULL  |
+| TG/2023/0010 |    78 |         61 |  NULL |    82 |       74 |  NULL |    81 |       77.5 | NULL  |
+| TG/2023/0011 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | NULL  |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+
+
+update eng1222
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+    when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end
+where student_id="TG/2023/0001";
