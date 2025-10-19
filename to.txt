@@ -1,0 +1,19 @@
+-- 3. TECHNICAL OFFICER TABLE 
+
+CREATE TABLE Technical_officer (
+    To_id CHAR(10) PRIMARY KEY,
+    User_id CHAR(10),
+    Name VARCHAR(100),
+    Gender CHAR(5),
+    NIC CHAR(12),
+    Address VARCHAR(100),
+    Phone_no CHAR(10),
+    FOREIGN KEY (User_id) REFERENCES Users(User_id)
+);
+
+INSERT INTO Technical_officer (To_id, User_id, Name, Gender, NIC, Address, Phone_no) VALUES
+('T001', 'U006', 'Mr. Tharindu Gamage', 'M', '199512345688', 'Colombo', '0721234567'),
+('T002', 'U007', 'Mr. Kasun Wijesinghe', 'M', '199412345689', 'Kandy', '0722345678'),
+('T003', 'U008', 'Ms. Madhu Ranaweera', 'F', '199612345690', 'Matara', '0723456789'),
+('T004', 'U009', 'Mr. Saman Liyanage', 'M', '199312345691', 'Jaffna', '0724567890'),
+('T005', 'U010', 'Mr. Naveen Peris', 'M', '199212345692', 'Kurunegala', '0725678901');
