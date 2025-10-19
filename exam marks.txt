@@ -49,3 +49,60 @@ drop column course_id;
 
  alter table TMS1233
  drop column course_id;
+
+
+alter table ict1212
+change total_mark final_mark int;
+
+
+alter table ict1222
+change total_mark final_mark int;
+
+
+alter table ict1232
+change total_mark final_mark int;
+alter table ict1233
+change total_mark final_mark int;
+
+
+alter table ict1242
+change total_mark final_mark int;
+
+
+alter table ict1253
+change total_mark final_mark int;
+
+
+alter table TCS1212
+change total_mark final_mark int;
+
+
+alter table tms1233
+change total_mark final_mark int;
+
+
+alter table ict1212
+ add column CA_Final int after mid_t;
+
+
+alter table ict1222
+add column CA_Final int after mid_t;
+
+
+alter table ict1233
+add column CA_Final int after mid_t;
+
+
+alter table ict1242
+add column CA_Final int after mid_t;
+
+alter table ict1253
+add column CA_Final int after mid_t;
+
+
+ alter table tcs1212
+ add column CA_Final int after mid_t;
+
+
+ alter table tms1233
+  add column CA_Final int after mid_t;
