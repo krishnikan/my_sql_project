@@ -21,3 +21,27 @@ INSERT INTO Lecturer (Lec_id, User_id, Name, Gender, NIC, Address, Email, Phone_
 
 
 
+---------lecturer_course table-----------
+CREATE TABLE Lecturer_Course (
+    Lec_id CHAR(10),
+    Course_id CHAR(7),
+    PRIMARY KEY (Lec_id, Course_id),
+    FOREIGN KEY (Lec_id) REFERENCES Lecturer(Lec_id),
+    FOREIGN KEY (Course_id) REFERENCES course(course_id)
+);
+
+INSERT INTO Lecturer_Course (Lec_id, course_id) VALUES
+('L001', 'ENG1222'),
+('L002', 'ICT1212'),
+('L003', 'ICT1222'),
+('L003', 'ICT1233'),
+('L004', 'ICT1242'),
+('L005', 'ICT1253'),
+('L001', 'TCS1212'),
+('L002', 'TMS1233');
+ 
+
+
+
+
+
