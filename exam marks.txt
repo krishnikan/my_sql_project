@@ -21,3 +21,31 @@ create table ICT1222(student_id varchar(12) primary key,course_id varchar(7),qui
 
  create table TMS1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
 
+
+
+ alter table eng1222
+  drop column course_id;
+
+
+alter table ict1222
+drop column course_id;
+
+alter table ICT1212
+drop column course_id;
+
+
+alter table ict1233
+drop column course_id;
+
+alter table ICT1242
+drop column course_id;
+
+
+ alter table ICT1253
+ drop column course_id;
+
+alter table TCS1212
+drop column course_id;
+
+ alter table TMS1233
+ drop column course_id;
