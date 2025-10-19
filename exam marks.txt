@@ -194,7 +194,7 @@ where student_id="TG/2023/0001"
 
 
 
- alter table eng1222 modify grade varchar(2);
+ alter table eng1222 modify grade varchar(2)
 
 
  update eng1222
