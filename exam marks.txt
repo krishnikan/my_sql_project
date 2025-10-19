@@ -1,1 +1,23 @@
-hi
+create table ENG1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+create table ICT1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1242(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1253(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table TCS1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table TMS1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
