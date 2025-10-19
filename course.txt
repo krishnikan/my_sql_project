@@ -1,0 +1,40 @@
+
+CREATE TABLE course (course_id CHAR(7) PRIMARY KEY,name VARCHAR(50),credit INT,theory INT,practical INT);
+
+
+desc course;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| course_id | char(7)     | NO   | PRI | NULL    |       |
+| name      | varchar(50) | YES  |     | NULL    |       |
+| credit    | int         | YES  |     | NULL    |       |
+| theory    | int         | YES  |     | NULL    |       |
+| practical | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+
+INSERT INTO course (course_id, name, credit, theory, practical) VALUES
+("ENG1222", "English II", 2, 2, null),
+("ICT1212", "Database Management Systems", 2, 2, null),
+("ICT1222", "Database Management Systems Practicum", 2, null, 4),
+("ICT1233", "Server Side Web Development", 3, 2, 2),
+("ICT1242", "Computer Architecture", 2, 2, null),
+("ICT1253", "Computer Networks", 3, 2, 2),
+("TCS1212", "Fundamentals of Management", 2, 2, null),
+("TMS1233", "Discrete Mathematics", 3, 3, null);
+
+
+select * from course;
++-----------+---------------------------------------+--------+--------+-----------+
+| course_id | name                                  | credit | theory | practical |
++-----------+---------------------------------------+--------+--------+-----------+
+| ENG1222   | English II                            |      2 |      2 |      NULL |
+| ICT1212   | Database Management Systems           |      2 |      2 |      NULL |
+| ICT1222   | Database Management Systems Practicum |      2 |   NULL |         4 |
+| ICT1233   | Server Side Web Development           |      3 |      2 |         2 |
+| ICT1242   | Computer Architecture                 |      2 |      2 |      NULL |
+| ICT1253   | Computer Networks                     |      3 |      2 |         2 |
+| TCS1212   | Fundamentals of Management            |      2 |      2 |      NULL |
+| TMS1233   | Discrete Mathematics                  |      3 |      3 |      NULL |
++-----------+---------------------------------------+--------+--------+-----------+
