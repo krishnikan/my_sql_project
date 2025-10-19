@@ -18,8 +18,32 @@ INSERT INTO Lecturer (Lec_id, User_id, Name, Gender, NIC, Address, Email, Phone_
 ('L003', 'U003', 'Mr. Nimal Perera', 'M', '199012345680', 'Galle', 'nimal@fot.ruh.ac.lk', '0713456789'),
 ('L004', 'U004', 'Ms. Asha Fernando', 'F', '199112345682', 'Kurunegala', 'asha@fot.ruh.ac.lk', '0714567890'),
 ('L005', 'U005', 'Mr. Vijay Nadarajah', 'M', '198312345687', 'Trincomalee', 'vijay@fot.ruh.ac.lk', '0715678901'),
-('L006', 'U023', 'Dr. Anura Jayasinghe', 'M', '198412345689', 'Matara', 'anura@fot.ruh.ac.lk', '0716789012'),
-('L007', 'U024', 'Ms. Ishara Perera', 'F', '199212345690', 'Kurunegala', 'ishara@fot.ruh.ac.lk', '0717890123');
+('L006', 'U023', 'Dr. Anura Jayasinghe', 'M', '198412345689', 'Matara', 'anura@fot.ruh.ac.lk', '0716789012');
+
+
+---------lecturer_course table-----------
+CREATE TABLE Lecturer_Course (
+    Lec_id CHAR(10),
+    Course_id CHAR(7),
+    PRIMARY KEY (Lec_id, Course_id),
+    FOREIGN KEY (Lec_id) REFERENCES Lecturer(Lec_id),
+    FOREIGN KEY (Course_id) REFERENCES course(course_id)
+);
+
+INSERT INTO Lecturer_Course (Lec_id, Course_id)
+VALUES
+('L001', 'ENG1222'), 
+('L001', 'ICT1212'), 
+('L002', 'ICT1212'), 
+('L002', 'ICT1233'), 
+('L003', 'ICT1222'),
+('L003', 'ICT1242'), 
+('L004', 'ICT1253'), 
+('L005', 'TCS1212'), 
+('L005', 'TMS1233'), 
+('L006', 'ICT1233'), 
+('L006', 'ICT1242'); 
+
 
 
 
