@@ -186,8 +186,8 @@ when final_mark >=60 then "B"
 when final_mark >=55 then "B-"
 when final_mark >=50 then "C+"
 when final_mark >=45 then "C"
-    when final_mark >=40 then "C-"
+when final_mark >=40 then "C-"
 when final_mark >=35 then "D"
 else "F"
 end
-where student_id="TG/2023/0001";
+where student_id="TG/2023/0001"
