@@ -18,7 +18,7 @@ INSERT INTO Lecturer (Lec_id, User_id, Name, Gender, NIC, Address, Email, Phone_
 ('L003', 'U003', 'Mr. Nimal Perera', 'M', '199012345680', 'Galle', 'nimal@fot.ruh.ac.lk', '0713456789'),
 ('L004', 'U004', 'Ms. Asha Fernando', 'F', '199112345682', 'Kurunegala', 'asha@fot.ruh.ac.lk', '0714567890'),
 ('L005', 'U005', 'Mr. Vijay Nadarajah', 'M', '198312345687', 'Trincomalee', 'vijay@fot.ruh.ac.lk', '0715678901'),
-('L006', 'U023', 'Dr. Anura Jayasinghe', 'M', '198412345689', 'Matara', 'anura@fot.ruh.ac.lk', '0716789012');
+('L006', 'U023', 'Dr. Anura Jayasinghe', 'M', '198412345689', 'Matara', 'anura@fot.ruh.ac.lk', '0716789098');
 
 
 ---------lecturer_course table-----------
