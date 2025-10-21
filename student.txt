@@ -61,8 +61,52 @@ SELECT * FROM student;
 | TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    | 0712348912 |   23 | Anuradhapura | Male   |
 +--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
 
+ALTER TABLE student DROP phone_no;
+
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+| student_id   | NIC          | firstname | lastname    | course | age  | address      | gender |
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+| TG/2023/0001 | 200319210901 | Amal      | Perera      | ICT    |   21 | Colombo      | Male   |
+| TG/2023/0002 | 200319210902 | Kavindu   | Silva       | ICT    |   22 | Galle        | Male   |
+| TG/2023/0003 | 200319210903 | Sajini    | Fernando    | ICT    |   20 | Matara       | Female |
+| TG/2023/0004 | 200319210904 | Nimesha   | Jayasinghe  | ICT    |   23 | Kandy        | Female |
+| TG/2023/0005 | 200319210905 | Tharindu  | Rajapaksha  | ICT    |   21 | Kurunegala   | Male   |
+| TG/2023/0006 | 200319210906 | Pasan     | Weerasinghe | ICT    |   22 | Colombo      | Male   |
+| TG/2023/0007 | 200319210907 | Ruwani    | Dissanayake | ICT    |   20 | Gampaha      | Female |
+| TG/2023/0008 | 200319210908 | Ishara    | Abeywardena | ICT    |   23 | Matale       | Female |
+| TG/2023/0009 | 200319210909 | Supun     | Bandara     | ICT    |   21 | Badulla      | Male   |
+| TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    |   22 | Hambantota   | Female |
+| TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    |   23 | Anuradhapura | Male   |
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
 
 
+CREATE TABLE student_phone_no
+    (student_id char(12),phone_no char(10),
+    PRIMARY KEY(student_id,phone_no),
+    FOREIGN KEY(student_id) REFERENCES student(student_id));
+
+
+INSERT INTO student_phone_no (student_id, phone_no) VALUES
+("TG/2023/0001", "0712345612"),
+("TG/2023/0001", "0771112233"),
+("TG/2023/0002", "0762223344"),
+("TG/2023/0003", "0734567834"),
+("TG/2023/0003", "0753334455"),
+("TG/2023/0004", "0745678945"),
+("TG/2023/0005", "0756789056"),
+("TG/2023/0005", "0715556677"),
+("TG/2023/0006", "0786667788"),
+("TG/2023/0007", "0778901278"),
+("TG/2023/0007", "0797778899"),
+("TG/2023/0008", "0728889900"),
+("TG/2023/0009", "0790123490"),
+("TG/2023/0010", "0710001122"),
+("TG/2023/0011", "0712348912"),
+("TG/2023/0011", "0751112233");
+
+
+
+student couse table  M:N
 
 
 
