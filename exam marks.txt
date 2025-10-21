@@ -473,3 +473,222 @@ update ict1222
      when final_mark >=35 then "D"
     else "F"
 end;
+
+
+
+
+insert into ict1233(student_id,quizz,assessment,mid_p,end_p,end_t)
+     values("TG/2023/0001",55,67,86,98,67),
+     ("TG/2023/0002",67,56,76,88,78),
+     ("TG/2023/0003",77,66,77,88,99),
+     ("TG/2023/0004",45,57,23,67,39),
+     ("TG/2023/0005",45,66,67,45,93),
+     ("TG/2023/0006",54,66,76,54,39),
+     ("TG/2023/0007",58,68,75,78,67),
+     ("TG/2023/0008",45,67,23,67,39),
+     ("TG/2023/0009",37,36,76,48,78),
+     ("TG/2023/0010",48,62,61,42,34),
+     ("TG/2023/001",67,56,45,34,23);
+
+     update ict1233
+     set student_id="TG/2023/0011"
+     where student_id="TG/2023/001";
+
+     ===========================================================================================
+
+      alter table ict1233
+     add column project int
+     after mid_t;
+
+
+     update ict1233
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1233
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1233
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1233
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1233
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1233
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1233
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+     update ict1233
+     set ca_final = (quizz + assessment + mid_p + project)/4;
+
+
+ update ict1233
+     set final_mark = (ca_final+end_p+end_t)/3;
+
+
+update ict1233
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+
+
+
+      alter table ict1222
+     add column project int
+     after mid_t;
+
+
+     update ict1222
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1222
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1222
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1222
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1222
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1222
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1222
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+
+update ict1222
+    -> set ca_final=(quizz+assessment+mid_p+project);
+Query OK, 11 rows affected (0.03 sec)
+Rows matched: 11  Changed: 11  Warnings: 0
+
+mysql> update ict1222
+    -> set ca_final=(quizz+assessment+mid_p+project)/4;
+Query OK, 11 rows affected (0.03 sec)
+Rows matched: 11  Changed: 11  Warnings: 0
+
+mysql> update ict1222
+    ->  set final_mark=(ca_final+end_p)/2;
+Query OK, 10 rows affected (0.03 sec)
+Rows matched: 11  Changed: 10  Warnings: 0
+
+mysql> select * from ict1222;
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | project | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    65 |         67 |    78 |  NULL |      45 |       64 |    89 |  NULL |         76 | A     |
+| TG/2023/0002 |    75 |         76 |    87 |  NULL |      56 |       74 |    89 |  NULL |         82 | A     |
+| TG/2023/0003 |    73 |         78 |    64 |  NULL |      67 |       70 |    38 |  NULL |         54 | B-    |
+| TG/2023/0004 |    37 |         87 |    46 |  NULL |      87 |       64 |    83 |  NULL |         74 | A-    |
+| TG/2023/0005 |    65 |         87 |    89 |  NULL |      67 |       77 |    56 |  NULL |         66 | B+    |
+| TG/2023/0006 |    56 |         78 |    98 |  NULL |      69 |       75 |    65 |  NULL |         70 | A-    |
+| TG/2023/0007 |    79 |         94 |    68 |  NULL |      78 |       80 |    96 |  NULL |         88 | A+    |
+| TG/2023/0008 |    97 |         49 |    86 |  NULL |      90 |       80 |    69 |  NULL |         74 | A-    |
+| TG/2023/0009 |    65 |         76 |    77 |  NULL |      98 |       79 |    88 |  NULL |         84 | A     |
+| TG/2023/0010 |    56 |         67 |    77 |  NULL |      48 |       62 |    88 |  NULL |         75 | A     |
+| TG/2023/0011 |    75 |         76 |    87 |  NULL |      98 |       84 |    89 |  NULL |         86 | A     |
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+11 rows in set (0.00 sec)
+
+ update ict1222
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+     
