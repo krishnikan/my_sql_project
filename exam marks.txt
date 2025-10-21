@@ -359,22 +359,22 @@ mysql> update eng1222
 Query OK, 1 row affected (0.03 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0011"
-    -> ;
+update eng1222
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end
+where student_id="TG/2023/0011"
+;
 
 
  select * from eng1222;
@@ -417,3 +417,20 @@ set ca_final = (quizz + assessment + mid_t)/3;
 
 update ict1212
 set final_mark = (ca_final+end_t)/2;
+
+
+update ict1212
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end;
+
