@@ -434,3 +434,42 @@ when final_mark >=35 then "D"
 else "F"
 end;
 
+
+
+
+=================================================
+ insert into ict1222 (student_id,quizz,assessment,mid_p,end_p)
+values("TG/2023/0001",65,67,78,89),
+("TG/2023/0002",75,76,87,89),
+("TG/2023/0003",73,78,64,38),
+("TG/2023/0004",37,87,46,83),
+("TG/2023/0005",65,87,89,56),
+("TG/2023/0006",56,78,98,65),
+("TG/2023/0007",79,94,68,96),
+("TG/2023/0008",97,49,86,69),
+("TG/2023/0009",65,76,77,88),
+("TG/2023/0010",56,67,77,88),
+("TG/2023/0011",75,76,87,89);
+
+
+update ict1222
+ set ca_final = (quizz + assessment + mid_p)/3;
+
+ update ict1222
+set final_mark = (ca_final + end_p)/2;
+
+
+update ict1222
+     set grade = case
+     when final_mark >=85 then "A+"
+     when final_mark >=75 then "A"
+     when final_mark >=70 then "A-"
+     when final_mark >=65 then "B+"
+     when final_mark >=60 then "B"
+     when final_mark >=55 then "B-"
+     when final_mark >=50 then "C+"
+     when final_mark >=45 then "C"
+     when final_mark >=40 then "C-"
+     when final_mark >=35 then "D"
+    else "F"
+end;
