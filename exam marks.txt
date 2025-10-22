@@ -692,3 +692,39 @@ mysql> select * from ict1222;
      end;
 
      
+
+      insert into ict1242(student_id,quizz,assessment,mid_t,end_t)
+     values("TG/2023/0001",67,78,98,67),
+     ("TG/2023/0002",77,68,88,67),
+     ("TG/2023/0003",75,89,67,76),
+     ("TG/2023/0004",98,89,76,54),
+     ("TG/2023/0005",56,76,34,45),
+     ("TG/2023/0006",67,55,67,90),
+     ("TG/2023/0007",53,78,54,94),
+     ("TG/2023/0008",43,65,78,56),
+     ("TG/2023/0009",71,92,83,51),
+     ("TG/2023/0010",91,82,73,64),
+     ("TG/2023/0011",91,82,73,64);
+
+
+     update ict1242
+     set ca_final = (quizz + assessment + mid_t)/3;
+
+     update ict1242
+     set final_mark = (ca_final + end_t)/2;
+
+
+     update ict1242
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
