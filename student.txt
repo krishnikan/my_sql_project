@@ -1,12 +1,29 @@
-PS C:\Users\ab> mysql -u root -p
-Enter password: ****
+/* PS C:\Users\ab> mysql -u root -p
+Enter password: **** */
+
+        /*========================================================
+        =           CRAETE AND USE DATABASE FOT                  =
+        ========================================================*/
 
 CREATE DATABASE fot;
 USE fot;
-SHOW TABLES;
 
-CREATE TABLE student (student_id CHAR(12) PRIMARY KEY,NIC CHAR(12),firstname VARCHAR(20),lastname VARCHAR(20),course VARCHAR(3),phone_no char(10),age INT,address VARCHAR(300),gender VARCHAR(10));
+        /*========================================================
+        =                CRAETE TABLE STUDENT                    =
+        ========================================================*/
 
+CREATE TABLE student
+    (student_id CHAR(12) PRIMARY KEY,
+    NIC CHAR(12),
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    course VARCHAR(3),
+    phone_no char(10),
+    age INT,
+    address VARCHAR(300),
+    gender VARCHAR(10));
+
+/*
 SHOW tables;
 +---------------+
 | Tables_in_fot |
@@ -28,7 +45,11 @@ DESC student;
 | address    | varchar(300) | YES  |     | NULL    |       |
 | gender     | varchar(10)  | YES  |     | NULL    |       |
 +------------+--------------+------+-----+---------+-------+
+*/
 
+        /*========================================================
+        =           INSERT STUDENT DETAIS 11                     =
+        ========================================================*/
 
 INSERT INTO student VALUES
 ("TG/2023/0001","200319210901","Amal","Perera","ICT","0712345612","21","Colombo","Male"),
@@ -44,6 +65,7 @@ INSERT INTO student VALUES
 ("TG/2023/0011","200319210911","Lakshan","Karunaratne","ICT","0712348912","23","Anuradhapura","Male");
 
 
+/*
 SELECT * FROM student;
 +--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
 | student_id   | NIC          | firstname | lastname    | course | phone_no   | age  | address      | gender |
@@ -60,9 +82,15 @@ SELECT * FROM student;
 | TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    | 0701234501 |   22 | Hambantota   | Female |
 | TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    | 0712348912 |   23 | Anuradhapura | Male   |
 +--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+*/
+
+        /*========================================================
+        =           DELETE phone_no COULUM                       =
+        ========================================================*/
 
 ALTER TABLE student DROP phone_no;
 
+/*
 +--------------+--------------+-----------+-------------+--------+------+--------------+--------+
 | student_id   | NIC          | firstname | lastname    | course | age  | address      | gender |
 +--------------+--------------+-----------+-------------+--------+------+--------------+--------+
@@ -78,13 +106,21 @@ ALTER TABLE student DROP phone_no;
 | TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    |   22 | Hambantota   | Female |
 | TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    |   23 | Anuradhapura | Male   |
 +--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+*/
 
+        /*========================================================
+        =           CREATE TABLE FOR MULTIVALUES                 =
+        ========================================================*/
 
 CREATE TABLE student_phone_no
     (student_id char(12),phone_no char(10),
     PRIMARY KEY(student_id,phone_no),
     FOREIGN KEY(student_id) REFERENCES student(student_id));
 
+
+        /*========================================================
+        =        INSERT MULTIVALUE PHONE NO DATA                 =
+        ========================================================*/
 
 INSERT INTO student_phone_no (student_id, phone_no) VALUES
 ("TG/2023/0001", "0712345612"),
@@ -111,6 +147,12 @@ student couse table  M:N
 
 
 
+
+
+
+        /*========================================================
+        =        INSERT ANOTHER 5 STUDENT VALUES                 =
+        ========================================================*/
 
 
 
