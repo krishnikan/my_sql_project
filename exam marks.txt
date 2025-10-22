@@ -59,8 +59,7 @@ alter table ict1222
 change total_mark final_mark int;
 
 
-alter table ict1232
-change total_mark final_mark int;
+
 alter table ict1233
 change total_mark final_mark int;
 
