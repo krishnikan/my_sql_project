@@ -1,0 +1,915 @@
+create table ENG1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+create table ICT1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1242(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table ICT1253(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table TCS1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+ create table TMS1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(1));
+
+
+
+ alter table eng1222
+  drop column course_id;
+
+
+alter table ict1222
+drop column course_id;
+
+alter table ICT1212
+drop column course_id;
+
+
+alter table ict1233
+drop column course_id;
+
+alter table ICT1242
+drop column course_id;
+
+
+ alter table ICT1253
+ drop column course_id;
+
+alter table TCS1212
+drop column course_id;
+
+ alter table TMS1233
+ drop column course_id;
+
+
+alter table ict1212
+change total_mark final_mark int;
+
+
+alter table ict1222
+change total_mark final_mark int;
+
+
+
+alter table ict1233
+change total_mark final_mark int;
+
+
+alter table ict1242
+change total_mark final_mark int;
+
+
+alter table ict1253
+change total_mark final_mark int;
+
+
+alter table TCS1212
+change total_mark final_mark int;
+
+
+alter table tms1233
+change total_mark final_mark int;
+
+
+alter table ict1212
+ add column CA_Final int after mid_t;
+
+
+alter table ict1222
+add column CA_Final int after mid_t;
+
+
+alter table ict1233
+add column CA_Final int after mid_t;
+
+
+alter table ict1242
+add column CA_Final int after mid_t;
+
+alter table ict1253
+add column CA_Final int after mid_t;
+
+
+ alter table tcs1212
+ add column CA_Final int after mid_t;
+
+
+ alter table tms1233
+  add column CA_Final int after mid_t;
+
+
+  update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0002";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0003";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0004";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+    where student_id="TG/2023/0005";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0006";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+    where student_id="TG/2023/0007";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0008";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0009";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0010";
+
+
+update eng1222
+set final_mark=(ca_final+end_t)/2
+where student_id="TG/2023/0011";
+
+
+mysql> select * from eng1222;
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    60 |         70 |  NULL |    65 |       65 |  NULL |    88 |       76.5 | NULL  |
+| TG/2023/0002 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | NULL  |
+| TG/2023/0003 |    89 |         96 |  NULL |    68 |       84 |  NULL |    56 |         70 | NULL  |
+| TG/2023/0004 |    59 |         98 |  NULL |    66 |       74 |  NULL |    67 |       70.5 | NULL  |
+| TG/2023/0005 |    72 |         64 |  NULL |    89 |       75 |  NULL |    78 |       76.5 | NULL  |
+| TG/2023/0006 |    81 |         63 |  NULL |    69 |       71 |  NULL |    74 |       72.5 | NULL  |
+| TG/2023/0007 |    67 |         98 |  NULL |    65 |       77 |  NULL |    91 |         84 | NULL  |
+| TG/2023/0008 |    74 |         63 |  NULL |    78 |       72 |  NULL |    59 |       65.5 | NULL  |
+| TG/2023/0009 |    65 |         87 |  NULL |    68 |       73 |  NULL |    79 |         76 | NULL  |
+| TG/2023/0010 |    78 |         61 |  NULL |    82 |       74 |  NULL |    81 |       77.5 | NULL  |
+| TG/2023/0011 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | NULL  |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+
+
+update eng1222
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end
+where student_id="TG/2023/0001"
+
+
+
+ alter table eng1222 modify grade varchar(2)
+
+
+ update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0002";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0003";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0004";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0005";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0006";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0007";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0008";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0009";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update eng1222
+    -> set grade = case
+    -> when final_mark >=85 then "A+"
+    -> when final_mark >=75 then "A"
+    -> when final_mark >=70 then "A-"
+    -> when final_mark >=65 then "B+"
+    -> when final_mark >=60 then "B"
+    -> when final_mark >=55 then "B-"
+    -> when final_mark >=50 then "C+"
+    -> when final_mark >=45 then "C"
+    -> when final_mark >=40 then "C-"
+    -> when final_mark >=35 then "D"
+    -> else "F"
+    -> end
+    -> where student_id="TG/2023/0010";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+update eng1222
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end
+where student_id="TG/2023/0011"
+;
+
+
+ select * from eng1222;
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    60 |         70 |  NULL |    65 |       65 |  NULL |    88 |       76.5 | A     |
+| TG/2023/0002 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | A-    |
+| TG/2023/0003 |    89 |         96 |  NULL |    68 |       84 |  NULL |    56 |         70 | A-    |
+| TG/2023/0004 |    59 |         98 |  NULL |    66 |       74 |  NULL |    67 |       70.5 | A-    |
+| TG/2023/0005 |    72 |         64 |  NULL |    89 |       75 |  NULL |    78 |       76.5 | A     |
+| TG/2023/0006 |    81 |         63 |  NULL |    69 |       71 |  NULL |    74 |       72.5 | A-    |
+| TG/2023/0007 |    67 |         98 |  NULL |    65 |       77 |  NULL |    91 |         84 | A     |
+| TG/2023/0008 |    74 |         63 |  NULL |    78 |       72 |  NULL |    59 |       65.5 | B+    |
+| TG/2023/0009 |    65 |         87 |  NULL |    68 |       73 |  NULL |    79 |         76 | A     |
+| TG/2023/0010 |    78 |         61 |  NULL |    82 |       74 |  NULL |    81 |       77.5 | A     |
+| TG/2023/0011 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | A-    |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+
+=========================================================================================================================================
+21/10/2025
+===================================================================================================================================================
+
+insert into ict1212(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+
+  update ict1212
+set ca_final = (quizz + assessment + mid_t)/3;
+
+update ict1212
+set final_mark = (ca_final+end_t)/2;
+
+
+update ict1212
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end;
+
+
+
+
+=================================================
+ insert into ict1222 (student_id,quizz,assessment,mid_p,end_p)
+values("TG/2023/0001",65,67,78,89),
+("TG/2023/0002",75,76,87,89),
+("TG/2023/0003",73,78,64,38),
+("TG/2023/0004",37,87,46,83),
+("TG/2023/0005",65,87,89,56),
+("TG/2023/0006",56,78,98,65),
+("TG/2023/0007",79,94,68,96),
+("TG/2023/0008",97,49,86,69),
+("TG/2023/0009",65,76,77,88),
+("TG/2023/0010",56,67,77,88),
+("TG/2023/0011",75,76,87,89);
+
+
+update ict1222
+ set ca_final = (quizz + assessment + mid_p)/3;
+
+ update ict1222
+set final_mark = (ca_final + end_p)/2;
+
+
+update ict1222
+     set grade = case
+     when final_mark >=85 then "A+"
+     when final_mark >=75 then "A"
+     when final_mark >=70 then "A-"
+     when final_mark >=65 then "B+"
+     when final_mark >=60 then "B"
+     when final_mark >=55 then "B-"
+     when final_mark >=50 then "C+"
+     when final_mark >=45 then "C"
+     when final_mark >=40 then "C-"
+     when final_mark >=35 then "D"
+    else "F"
+end;
+
+
+
+
+insert into ict1233(student_id,quizz,assessment,mid_p,end_p,end_t)
+     values("TG/2023/0001",55,67,86,98,67),
+     ("TG/2023/0002",67,56,76,88,78),
+     ("TG/2023/0003",77,66,77,88,99),
+     ("TG/2023/0004",45,57,23,67,39),
+     ("TG/2023/0005",45,66,67,45,93),
+     ("TG/2023/0006",54,66,76,54,39),
+     ("TG/2023/0007",58,68,75,78,67),
+     ("TG/2023/0008",45,67,23,67,39),
+     ("TG/2023/0009",37,36,76,48,78),
+     ("TG/2023/0010",48,62,61,42,34),
+     ("TG/2023/001",67,56,45,34,23);
+
+     update ict1233
+     set student_id="TG/2023/0011"
+     where student_id="TG/2023/001";
+
+     ===========================================================================================
+
+      alter table ict1233
+     add column project int
+     after mid_t;
+
+
+     update ict1233
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1233
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1233
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1233
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1233
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1233
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1233
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+     update ict1233
+     set ca_final = (quizz + assessment + mid_p + project)/4;
+
+
+ update ict1233
+     set final_mark = (ca_final+end_p+end_t)/3;
+
+
+update ict1233
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+
+
+
+      alter table ict1222
+     add column project int
+     after mid_t;
+
+
+     update ict1222
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1222
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1222
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1222
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1222
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1222
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1222
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+
+update ict1222
+    -> set ca_final=(quizz+assessment+mid_p+project);
+Query OK, 11 rows affected (0.03 sec)
+Rows matched: 11  Changed: 11  Warnings: 0
+
+mysql> update ict1222
+    -> set ca_final=(quizz+assessment+mid_p+project)/4;
+Query OK, 11 rows affected (0.03 sec)
+Rows matched: 11  Changed: 11  Warnings: 0
+
+mysql> update ict1222
+    ->  set final_mark=(ca_final+end_p)/2;
+Query OK, 10 rows affected (0.03 sec)
+Rows matched: 11  Changed: 10  Warnings: 0
+
+mysql> select * from ict1222;
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | project | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    65 |         67 |    78 |  NULL |      45 |       64 |    89 |  NULL |         76 | A     |
+| TG/2023/0002 |    75 |         76 |    87 |  NULL |      56 |       74 |    89 |  NULL |         82 | A     |
+| TG/2023/0003 |    73 |         78 |    64 |  NULL |      67 |       70 |    38 |  NULL |         54 | B-    |
+| TG/2023/0004 |    37 |         87 |    46 |  NULL |      87 |       64 |    83 |  NULL |         74 | A-    |
+| TG/2023/0005 |    65 |         87 |    89 |  NULL |      67 |       77 |    56 |  NULL |         66 | B+    |
+| TG/2023/0006 |    56 |         78 |    98 |  NULL |      69 |       75 |    65 |  NULL |         70 | A-    |
+| TG/2023/0007 |    79 |         94 |    68 |  NULL |      78 |       80 |    96 |  NULL |         88 | A+    |
+| TG/2023/0008 |    97 |         49 |    86 |  NULL |      90 |       80 |    69 |  NULL |         74 | A-    |
+| TG/2023/0009 |    65 |         76 |    77 |  NULL |      98 |       79 |    88 |  NULL |         84 | A     |
+| TG/2023/0010 |    56 |         67 |    77 |  NULL |      48 |       62 |    88 |  NULL |         75 | A     |
+| TG/2023/0011 |    75 |         76 |    87 |  NULL |      98 |       84 |    89 |  NULL |         86 | A     |
++--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
+11 rows in set (0.00 sec)
+
+ update ict1222
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+     =======================================================================================================
+     22/10/2025
+     ========================================================================================================
+
+      insert into ict1242(student_id,quizz,assessment,mid_t,end_t)
+     values("TG/2023/0001",67,78,98,67),
+     ("TG/2023/0002",77,68,88,67),
+     ("TG/2023/0003",75,89,67,76),
+     ("TG/2023/0004",98,89,76,54),
+     ("TG/2023/0005",56,76,34,45),
+     ("TG/2023/0006",67,55,67,90),
+     ("TG/2023/0007",53,78,54,94),
+     ("TG/2023/0008",43,65,78,56),
+     ("TG/2023/0009",71,92,83,51),
+     ("TG/2023/0010",91,82,73,64),
+     ("TG/2023/0011",91,82,73,64);
+
+
+     update ict1242
+     set ca_final = (quizz + assessment + mid_t)/3;
+
+     update ict1242
+     set final_mark = (ca_final + end_t)/2;
+
+
+     update ict1242
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+
+
+insert into ict1253(student_id,quizz,assessment,mid_p,mid_t,project,end_t,end_p)
+     values("TG/2023/0001",56,89,65,23,54,49,48),
+     ("TG/2023/0002",47,87,81,49,91,23,79),
+     ("TG/2023/0003",45,98,32,13,56,78,74),
+     ("TG/2023/0004",67,82,74,49,12,92,43),
+     ("TG/2023/0005",67,82,74,49,12,92,43),
+     ("TG/2023/0006",45,98,32,13,56,78,74),
+     ("TG/2023/0007",47,87,81,49,91,23,79),
+     ("TG/2023/0008",56,89,65,23,54,49,48),
+     ("TG/2023/0009",89,23,62,81,28,39,48),
+     ("TG/2023/0010",18,29,39,31,82,38,48),
+     ("TG/2023/0011",48,59,69,11,82,28,58);
+
+
+
+     update ict1253
+     set ca_final = (quizz + assessment + mid_p + mid_t + project)/5;
+
+     update ict1253
+     set final_mark = (ca_final + end_p + end_t)/3;
+
+
+update ict1253
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+     
+insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+  update tms1233
+      set ca_final = (quizz + assessment + mid_t)/3;
+
+
+ update tms1233
+     set final_mark = (ca_final + end_t)/2;
+
+
+update tms1233
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+
+     create or replace view student_final_grade AS
+     select
+     s.student_id,
+     s.lastname,
+     eng.grade as  eng1222,
+     a.grade as ict1212,
+     b.grade as ict1222,
+     c.grade as ict1233,
+     d.grade as ict1242,
+     e.grade as ict1253,
+     f.grade as tcs1212,
+     g.grade as tms1233
+     from student s
+     join eng1222 eng on s.student_id = eng.student_id
+     join ict1212 a on s.student_id = a.student_id
+     join ict1222 b on s.student_id = b.student_id
+     join ict1233 c on s.student_id = c.student_id
+     join ict1242 d on s.student_id = d.student_id
+     join ict1253 e on s.student_id = e.student_id
+     join tcs1212 f on s.student_id = f.student_id
+     join tms1233 g on s.student_id = g.student_id;
+
+     CREATE OR REPLACE VIEW student_final_grade AS
+SELECT 
+    s.student_id,
+    s.lastname,
+
+    eng.grade AS eng1222,
+    a.grade AS ict1212,
+    b.grade AS ict1222,
+    c.grade AS ict1233,
+    d.grade AS ict1242,
+    e.grade AS ict1253,
+    f.grade AS tcs1212,
+    g.grade AS tms1233,
+
+   
+    ROUND((
+        (
+            
+            (CASE eng.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE a.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE b.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE c.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE d.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE e.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE f.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE g.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+        ) / 19  -- total credits
+    ), 2) AS gpa  -- rounded to 2 decimals
+
+FROM student s
+JOIN eng1222 eng ON s.student_id = eng.student_id
+JOIN ict1212 a ON s.student_id = a.student_id
+JOIN ict1222 b ON s.student_id = b.student_id
+JOIN ict1233 c ON s.student_id = c.student_id
+JOIN ict1242 d ON s.student_id = d.student_id
+JOIN ict1253 e ON s.student_id = e.student_id
+JOIN tcs1212 f ON s.student_id = f.student_id
+JOIN tms1233 g ON s.student_id = g.student_id;
