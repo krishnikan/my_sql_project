@@ -24,3 +24,5 @@ VALUES
 ('G009', 'Balachandran', 'Brother', '0714445566', 'balachandran@gmail.com', 'Matara, Sri Lanka', 'Driver', 'TG/2023/0009'),
 ('G010', 'Anjali Devi', 'Mother', '0725556677', 'anjali.devi@gmail.com', 'Negombo, Sri Lanka', 'Teacher', 'TG/2023/0010'),
 ('G011', 'Selvaraj', 'Father', '0736667788', 'selvaraj@gmail.com', 'Kilinochchi, Sri Lanka', 'Businessman', 'TG/2023/0011');
+
+

@@ -17,3 +17,6 @@ INSERT INTO Technical_officer (To_id, User_id, Name, Gender, NIC, Address, Phone
 ('T003', 'U008', 'Ms. Madhu Ranaweera', 'F', '199612345690', 'Matara', '0723456789'),
 ('T004', 'U009', 'Mr. Saman Liyanage', 'M', '199312345691', 'Jaffna', '0724567890'),
 ('T005', 'U010', 'Mr. Naveen Peris', 'M', '199212345692', 'Kurunegala', '0725678901');
+
+
+

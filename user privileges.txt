@@ -61,3 +61,5 @@ CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'Stu@123';
 GRANT SELECT ON fot.final_attendance TO 'student_user'@'localhost';
 GRANT SELECT ON fot.final_marks TO 'student_user'@'localhost';
 GRANT SELECT ON fot.grades TO 'student_user'@'localhost';
+
+
