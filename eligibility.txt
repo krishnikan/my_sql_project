@@ -1,0 +1,16 @@
+        /*========================================================
+        =               create table eligibility                 =
+        ========================================================*/
+
+
+CREATE TABLE 
+    eligibility
+    (student_id char(12)
+    ,mid_eligibility int,
+    end_eligibility int,
+    att_eligibility int ,
+    primary key(studentid));
+
+
+
+    
