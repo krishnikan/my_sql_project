@@ -2420,20 +2420,54 @@ UPDATE ATTENDANCE SET time_allocation=2;
 
 
         /*========================================================
-        =         CREATE VIEW STUDENT AND COURSE                 =
+        =        FIND THE ONE STUDENT,COURSE ATTENDANCE          =
         ========================================================*/
 
-delimiter //
-CREATE PROCEDURE STUDENT_COURSE_ATT(IN TG CHAR(12),c_id char(7))
-    BEIGN
+DELIMITER //
+
+CREATE PROCEDURE STUDENT_COURSE_ATT(IN TG CHAR(12), IN c_id CHAR(7))
+BEGIN
     SELECT 
-    a.student_id,c.name,a.course_id 
-    from attendance as a,course  as c
-    where a.student_id="TG" AND c.course_id=c_id;
-    end//
-delimiter ;
+        a.student_id,
+        c.name,
+        a.course_id,
+	a.week_no,
+	a.date,
+	a.status
+    FROM 
+	attendance AS a
+    JOIN 
+        course AS c 
+    ON a.course_id = c.course_id
+    WHERE a.student_id = TG AND c.course_id = c_id;
+
+END //
+
+DELIMITER ;
+
+CALL STUDENT_COURSE_ATT('TG/2023/0001', 'TMS1233');
 
 
-
-
+/*mysql> CALL STUDENT_COURSE_ATT('TG/2023/0001', 'TMS1233');
++--------------+----------------------+-----------+---------+------------+---------+
+| student_id   | name                 | course_id | week_no | date       | status  |
++--------------+----------------------+-----------+---------+------------+---------+
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       1 | 2025-02-05 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       2 | 2025-02-12 | absent  |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       3 | 2025-02-19 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       4 | 2025-02-26 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       5 | 2025-03-05 | absent  |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       6 | 2025-03-12 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       7 | 2025-03-19 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       8 | 2025-03-26 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |       9 | 2025-04-02 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      10 | 2025-04-09 | medical |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      11 | 2025-04-16 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      12 | 2025-04-23 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      13 | 2025-04-30 | absent  |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      14 | 2025-05-07 | present |
+| TG/2023/0001 | Discrete Mathematics | TMS1233   |      15 | 2025-05-14 | present |
++--------------+----------------------+-----------+---------+------------+---------+
+*/
     
+
