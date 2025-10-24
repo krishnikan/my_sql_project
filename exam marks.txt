@@ -122,7 +122,7 @@ values("TG/2023/0001",70,40,62,56),
 
  update eng1222
  set ca_final = (quizz+assessment+mid_t)/3;
- 
+
 
 
   update eng1222
@@ -689,3 +689,37 @@ JOIN ict1242 d ON s.student_id = d.student_id
 JOIN ict1253 e ON s.student_id = e.student_id
 JOIN tcs1212 f ON s.student_id = f.student_id
 JOIN tms1233 g ON s.student_id = g.student_id;
+
+
+
+
+=============================================================================
+
+=============================================================================
+insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+     values("TG/2021/0014",67,34,29,78),
+     ("TG/2021/0016",63,39,59,78),
+     ("TG/2022/0012",62,49,19,56),
+     ("TG/2022/0013",62,49,19,56);
+
+     update tms1233
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tms1233
+     set final_mark=(ca_final+end_t)/2;
+
+      update tms1233
+               set grade = case
+               when final_mark >=85 then "A+"
+               when final_mark >=75 then "A"
+               when final_mark >=70 then "A-"
+               when final_mark >=65 then "B+"
+               when final_mark >=60 then "B"
+               when final_mark >=55 then "B-"
+               when final_mark >=50 then "C+"
+               when final_mark >=45 then "C"
+               when final_mark >=40 then "C-"
+               when final_mark >=35 then "D"
+              else "F"
+          end;
