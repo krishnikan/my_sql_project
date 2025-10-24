@@ -150,7 +150,7 @@ mysql> select * from eng1222;
 +--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
 
 
-alter table eng1222 modify grade varchar(2)
+alter table eng1222 modify grade varchar(2);
 
 update eng1222
 set grade = case
