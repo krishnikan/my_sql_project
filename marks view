@@ -1,0 +1,100 @@
+
+
+
+     CREATE OR REPLACE VIEW student_final_grade AS
+SELECT 
+    s.student_id,
+    s.lastname,
+
+    eng.grade AS eng1222,
+    a.grade AS ict1212,
+    b.grade AS ict1222,
+    c.grade AS ict1233,
+    d.grade AS ict1242,
+    e.grade AS ict1253,
+    f.grade AS tcs1212,
+    g.grade AS tms1233,
+
+   
+    ROUND((
+        (
+            
+            (CASE eng.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE a.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE b.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE c.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE d.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE e.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE f.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE g.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+        ) / 19  -- total credits
+    ), 2) AS gpa  -- rounded to 2 decimals
+
+FROM student s
+JOIN eng1222 eng ON s.student_id = eng.student_id
+JOIN ict1212 a ON s.student_id = a.student_id
+JOIN ict1222 b ON s.student_id = b.student_id
+JOIN ict1233 c ON s.student_id = c.student_id
+JOIN ict1242 d ON s.student_id = d.student_id
+JOIN ict1253 e ON s.student_id = e.student_id
+JOIN tcs1212 f ON s.student_id = f.student_id
+JOIN tms1233 g ON s.student_id = g.student_id;
+
+
+
+
+=============================================================================
+
+
+
+
+
+create view student_gpa as
+     select student_id,lastname,gpa
+     from student_final_grade;
