@@ -107,54 +107,29 @@ add column CA_Final int after mid_t;
   add column CA_Final int after mid_t;
 
 
+  insert into eng1222(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+ update eng1222
+ set ca_final = (quizz+assessment+mid_t)/3;
+ 
+
+
   update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0002";
+set final_mark=(ca_final+end_t)/2;
 
 
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0003";
 
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0004";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-    where student_id="TG/2023/0005";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0006";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-    where student_id="TG/2023/0007";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0008";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0009";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0010";
-
-
-update eng1222
-set final_mark=(ca_final+end_t)/2
-where student_id="TG/2023/0011";
 
 
 mysql> select * from eng1222;
@@ -175,188 +150,7 @@ mysql> select * from eng1222;
 +--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
 
 
-update eng1222
-set grade = case
-when final_mark >=85 then "A+"
-when final_mark >=75 then "A"
-when final_mark >=70 then "A-"
-when final_mark >=65 then "B+"
-when final_mark >=60 then "B"
-when final_mark >=55 then "B-"
-when final_mark >=50 then "C+"
-when final_mark >=45 then "C"
-when final_mark >=40 then "C-"
-when final_mark >=35 then "D"
-else "F"
-end
-where student_id="TG/2023/0001"
-
-
-
- alter table eng1222 modify grade varchar(2)
-
-
- update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0002";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0003";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0004";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0005";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0006";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0007";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0008";
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0009";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update eng1222
-    -> set grade = case
-    -> when final_mark >=85 then "A+"
-    -> when final_mark >=75 then "A"
-    -> when final_mark >=70 then "A-"
-    -> when final_mark >=65 then "B+"
-    -> when final_mark >=60 then "B"
-    -> when final_mark >=55 then "B-"
-    -> when final_mark >=50 then "C+"
-    -> when final_mark >=45 then "C"
-    -> when final_mark >=40 then "C-"
-    -> when final_mark >=35 then "D"
-    -> else "F"
-    -> end
-    -> where student_id="TG/2023/0010";
-Query OK, 1 row affected (0.03 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+alter table eng1222 modify grade varchar(2)
 
 update eng1222
 set grade = case
@@ -371,9 +165,15 @@ when final_mark >=45 then "C"
 when final_mark >=40 then "C-"
 when final_mark >=35 then "D"
 else "F"
-end
-where student_id="TG/2023/0011"
-;
+end;
+
+
+
+
+
+
+
+
 
 
  select * from eng1222;
@@ -473,7 +273,7 @@ update ict1222
     else "F"
 end;
 
-
+============================================================================================
 
 
 insert into ict1233(student_id,quizz,assessment,mid_p,end_p,end_t)
@@ -642,20 +442,16 @@ update ict1233
 
 
 
-update ict1222
-    -> set ca_final=(quizz+assessment+mid_p+project);
-Query OK, 11 rows affected (0.03 sec)
-Rows matched: 11  Changed: 11  Warnings: 0
 
-mysql> update ict1222
-    -> set ca_final=(quizz+assessment+mid_p+project)/4;
-Query OK, 11 rows affected (0.03 sec)
-Rows matched: 11  Changed: 11  Warnings: 0
 
-mysql> update ict1222
-    ->  set final_mark=(ca_final+end_p)/2;
-Query OK, 10 rows affected (0.03 sec)
-Rows matched: 11  Changed: 10  Warnings: 0
+
+ update ict1222
+ set ca_final=(quizz+assessment+mid_p+project)/4;
+
+
+ update ict1222
+  set final_mark=(ca_final+end_p)/2;
+
 
 mysql> select * from ict1222;
 +--------------+-------+------------+-------+-------+---------+----------+-------+-------+------------+-------+
@@ -807,27 +603,7 @@ update tms1233
      end;
 
 
-     create or replace view student_final_grade AS
-     select
-     s.student_id,
-     s.lastname,
-     eng.grade as  eng1222,
-     a.grade as ict1212,
-     b.grade as ict1222,
-     c.grade as ict1233,
-     d.grade as ict1242,
-     e.grade as ict1253,
-     f.grade as tcs1212,
-     g.grade as tms1233
-     from student s
-     join eng1222 eng on s.student_id = eng.student_id
-     join ict1212 a on s.student_id = a.student_id
-     join ict1222 b on s.student_id = b.student_id
-     join ict1233 c on s.student_id = c.student_id
-     join ict1242 d on s.student_id = d.student_id
-     join ict1253 e on s.student_id = e.student_id
-     join tcs1212 f on s.student_id = f.student_id
-     join tms1233 g on s.student_id = g.student_id;
+
 
      CREATE OR REPLACE VIEW student_final_grade AS
 SELECT 
