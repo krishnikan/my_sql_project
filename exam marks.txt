@@ -723,3 +723,4 @@ insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
                when final_mark >=35 then "D"
               else "F"
           end;
+          
