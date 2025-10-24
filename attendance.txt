@@ -2416,7 +2416,7 @@ INSERT INTO Attendance (attendance_id, student_id, course_id, week_no, session_t
 ("ATT-1650", "TG/2023/0011", "TMS1233", 15, "theory", "2025-05-14", "present", 3)
 ;
 
-
+UPDATE ATTENDANCE SET time_allocation=2;
 
 
         /*========================================================
