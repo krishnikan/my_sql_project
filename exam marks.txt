@@ -710,3 +710,236 @@ update student
  update student
      set user_id=("U021")
      where student_id="TG/2023/0011";
+
+
+
+
+     ========================================================================================
+     student mark updated
+     ========================================================================================
+     update eng1222
+     set quizz=5
+     where student_id="TG/2023/0001";
+
+
+ update eng1222
+     set mid_t=2
+     where student_id="TG/2023/0001";
+
+
+ update eng1222
+     set assessment=4
+     where student_id="TG/2023/0001";
+
+
+     update ict1222
+     set mid_p=5
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set end_p=50
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set project=5
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set quizz=5
+     where student_id="TG/2023/0002";
+
+
+       update ict1222
+     set mid_p=5
+     where student_id="TG/2023/0002";
+
+
+       update ict1212
+     set mid_t=5
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set end_t=52
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set assessment=5
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set quizz=5
+     where student_id="TG/2023/0003";
+
+      update ict1212
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update ict1212
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+     update ict1233
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set project=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set mid_p=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+      
+
+      update ict1233
+     set end_t=57
+     where student_id="TG/2023/0004";
+
+     update ict1233
+     set end_p=53
+     where student_id="TG/2023/0004";
+
+     update ict1233
+     set ca_final=(quizz+assessment++mid_p+project)/4;
+
+
+ update ict1233
+     set final_mark=(ca_final+end_t+end_P)/3;
+
+
+     update ict1242
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update ict1242
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update ict1242
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+update ict1253
+     set quizz=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set project=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set mid_p=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set assessment=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set mid_t=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set end_t=57
+     where student_id="TG/2023/0005";
+
+     update ict1253
+     set end_p=53
+     where student_id="TG/2023/0005";
+
+     update ict1253
+     set ca_final=(quizz+assessment+mid_t+mid_p+project)/5;
+
+
+ update ict1253
+     set final_mark=(ca_final+end_t+end_P)/3;
+
+
+
+
+
+      update tcs1212
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update tcs1212
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tcs1212
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+
+
+
+ update tms1233
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update tms1233
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tms1233
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+
+
+
+     
+
+
+
+
+

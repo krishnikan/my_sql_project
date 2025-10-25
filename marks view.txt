@@ -95,6 +95,35 @@ JOIN tms1233 g ON s.student_id = g.student_id;
 
 
 
-create view student_gpa as
+create view student_eligible as
      select student_id,lastname,gpa
      from student_final_grade;
+
+
+
+     
+     CREATE OR REPLACE VIEW student_final_grade AS
+SELECT 
+    s.student_id,
+    s.lastname,
+
+    eng.ca_final AS eng1222,
+    a.ca_final AS ict1212,
+    b.ca_final AS ict1222,
+    c.ca_final AS ict1233,
+    d.ca_final AS ict1242,
+    e.ca_final AS ict1253,
+    f.ca_final AS tcs1212,
+    g.ca_final AS tms1233,
+
+   
+
+FROM student s
+JOIN eng1222 eng ON s.student_id = eng.student_id
+JOIN ict1212 a ON s.student_id = a.student_id
+JOIN ict1222 b ON s.student_id = b.student_id
+JOIN ict1233 c ON s.student_id = c.student_id
+JOIN ict1242 d ON s.student_id = d.student_id
+JOIN ict1253 e ON s.student_id = e.student_id
+JOIN tcs1212 f ON s.student_id = f.student_id
+JOIN tms1233 g ON s.student_id = g.student_id;
