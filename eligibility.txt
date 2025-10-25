@@ -1085,4 +1085,123 @@ SELECT * FROM TG_2023_0010;
 SELECT * FROM TG_2023_0011;
 
 
+        /*========================================================
+        =               COURSE ELIGIBILITY                       =
+        ========================================================*/
+
+CREATE VIEW course_eng1222_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from eng1222;
+
+
+CREATE VIEW course_ict1212_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1212;
+
+CREATE VIEW course_ict1222_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1222;
+
+CREATE VIEW course_ict1233_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1222;
+
+CREATE VIEW course_ict1242_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1242;
+
+
+CREATE VIEW course_ict1253_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1253;
+
+CREATE VIEW course_tcs1212_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from tcs1212;
+
+CREATE VIEW course_tms1233_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from tms1233;
+
+select * from course_eng1222_eligibility;
+select * from course_ict1212_eligibility;
+select * from course_ict1222_eligibility;
+select * from course_ict1233_eligibility;
+select * from course_ict1242_eligibility;
+select * from course_ict1253_eligibility;
+select * from course_tcs1212_eligibility;
+select * from course_tms1233_eligibility;
+
+
+        /*========================================================
+        =            Student_course_eligibility                  =
+        ========================================================*/
+
+CREATE VIEW Student_course_eligibility As
+    SELECT
+        a.student_id,
+        a.ca_status as ENG1222,
+        b.ca_status as ICT1212,
+        c.ca_status as ICT1222,
+        d.ca_status as ICT1233,
+        e.ca_status as ICT1242,
+        f.ca_status as ICT1253,
+        g.ca_status as TCS1212,
+        h.ca_status as TMS1233
+
+    FROM course_eng1222_eligibility as a
+    JOIN 
+    course_ICT1212_eligibility as b on a.student_id=b.student_id
+    JOIN 
+    course_ICT1222_eligibility as c on a.student_id=c.student_id
+    JOIN 
+    course_ICT1233_eligibility as d on a.student_id=d.student_id
+    JOIN 
+    course_ICT1242_eligibility as e on a.student_id=e.student_id
+    JOIN 
+    course_ICT1253_eligibility as f on a.student_id=f.student_id
+    JOIN 
+    course_TCS1212_eligibility as g on a.student_id=g.student_id
+    JOIN 
+    course_TMS1233_eligibility as h on a.student_id=h.student_id;
 
