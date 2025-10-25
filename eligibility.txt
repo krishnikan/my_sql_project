@@ -1,0 +1,118 @@
+        /*========================================================
+        =   CREATE VIEW TABLE ELIGIBILITY STUDENT BY STUDENT     =
+        ========================================================*/
+
+/*###############  ALL REFERENCE INFORMATION  ###############
+
+                EL : Eligible
+
+                NE : Not Eligible(No Minimum Attendence)
+
+                NE* : Not Eligible(CA Fail)
+
+                NE** : Not Eligible(No Minimum Attendence & CA Fail)
+
+                NC : Not Decided  */
+
+
+
+
+CREATE VIEW TG_2023_0001 AS
+
+SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
+       ENG1222.CA_Final,
+       CASE
+           WHEN ENG1222.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ENG1222
+WHERE ENG1222.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "ICT1212" AS "course_id", "Database Management Systems" AS "course_name",
+       ICT1212.CA_Final,
+       CASE
+           WHEN ICT1212.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ICT1212
+WHERE ICT1212.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "ICT1222" AS "course_id", "Database Management Systems Practicum" AS "course_name",
+       ICT1222.CA_Final,
+       CASE
+           WHEN ICT1222.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ICT1222
+WHERE ICT1222.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "ICT1233" AS "course_id", "Server Side Web Development" AS "course_name",
+       ICT1233.CA_Final,
+       CASE
+           WHEN ICT1233.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ICT1233
+WHERE ICT1233.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "ICT1242" AS "course_id", "Computer Architecture" AS "course_name",
+       ICT1242.CA_Final,
+       CASE
+           WHEN ICT1242.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ICT1242
+WHERE ICT1242.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "ICT1253" AS "course_id", "Computer Networks" AS "course_name",
+       ICT1253.CA_Final,
+       CASE
+           WHEN ICT1253.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM ICT1253
+WHERE ICT1253.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "TCS1212" AS "course_id", "Fundamentals of Management" AS "course_name",
+       TCS1212.CA_Final,
+       CASE
+           WHEN TCS1212.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM TCS1212
+WHERE TCS1212.student_id = "TG/2023/0001"
+
+UNION ALL
+
+SELECT "TMS1233" AS "course_id", "Discrete Mathematics" AS "course_name",
+       TMS1233.CA_Final,
+       CASE
+           WHEN TMS1233.CA_Final >= 40 
+               THEN "EL" ELSE "EL*" 
+       END AS "ca_status"
+FROM TMS1233
+WHERE TMS1233.student_id = "TG/2023/0001";
+
+
+
+
+CREATE VIEW 
+
+
+
+
+
+
+
