@@ -636,3 +636,77 @@ insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
               else "F"
           end;
           
+
+           update student
+     set user_id=("u028")
+     where student_id="TG/2021/0016";
+
+
+ update student
+     set user_id=("u024")
+     where student_id="TG/2022/0012";
+
+
+ update student
+     set user_id=("u025")
+     where student_id="TG/2022/0013";
+
+
+ update student
+     set user_id=("u027")
+     where student_id="TG/2022/0015";
+
+
+     update student
+     set user_id=("U011")
+     where student_id="TG/2023/0001";
+
+
+ update student
+     set user_id=("U012")
+     where student_id="TG/2023/0002";
+
+
+ update student
+     set user_id=("U013")
+     where student_id="TG/2023/0003";
+
+
+ update student
+     set user_id=("U014")
+     where student_id="TG/2023/0004";
+
+
+ update student
+     set user_id=("U015")
+     where student_id="TG/2023/0005";
+
+
+update student
+     set user_id=("U016")
+     where student_id="TG/2023/0006";
+
+
+ update student
+     set user_id=("U017")
+     where student_id="TG/2023/0007";
+
+
+ update student
+     set user_id=("U018")
+     where student_id="TG/2023/0008";
+
+
+ update student
+     set user_id=("U019")
+     where student_id="TG/2023/0009";
+
+
+ update student
+     set user_id=("U020")
+     where student_id="TG/2023/0010";
+
+
+ update student
+     set user_id=("U021")
+     where student_id="TG/2023/0011";
