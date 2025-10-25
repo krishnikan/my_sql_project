@@ -96,4 +96,9 @@ JOIN tms1233 g ON s.student_id = g.student_id;
 SELECT student_id,lastname,gpa
 from student_final_grade;
 
+CREATE OR REPLACE VIEW gpa_above3 AS
+SELECT *
+from student_final_grade
+where gpa>3;
+
 
