@@ -1,0 +1,36 @@
+CREATE TABLE Medical(
+medical_id VARCHAR(10) PRIMARY KEY,
+student_id VARCHAR(12), 
+course_id VARCHAR(10),
+week_no INT CHECK(week_no BETWEEN 1 AND 15),
+session_type ENUM('theory', 'practical'), 
+date DATE, time_allocation INT CHECK(time_allocation > 0), 
+reason VARCHAR(100), status ENUM('approved', 'rejected', 'pending') DEFAULT 'approved',
+FOREIGN KEY(student_id) REFERENCES Student(student_id),
+FOREIGN KEY(course_id) REFERENCES Course(course_id) );
+
+
+UPDATE attendance 
+SET status = "present" 
+WHERE status = "medical";
+
+
+UPDATE attendance SET status="medical" where attendance_id IN("ATT-0005","ATT-0010","ATT-0015","ATT-0020","ATT-0025","ATT-0100");
+
+UPDATE attendance SET status="medical" where attendance_id IN("ATT-0200","ATT-0300","ATT-0400","ATT-0700","ATT-1000");
+
+
+INSERT INTO Medical
+(medical_id, student_id, course_id, week_no, session_type, date, time_allocation, reason, status)
+VALUES
+('M0001', 'TG/2023/0005', 'ENG1222', 1, 'theory', '2025-02-07', 2, 'fever', 'approved'),
+('M0002', 'TG/2023/0010', 'ENG1222', 1, 'theory', '2025-02-07', 2, 'fever', 'approved'),
+('M0003', 'TG/2023/0004', 'ICT1212', 1, 'theory', '2025-02-06', 2, 'fever', 'approved'),
+('M0004', 'TG/2023/0009', 'ICT1212', 1, 'theory', '2025-02-06', 2, 'fever', 'approved'),
+('M0005', 'TG/2023/0003', 'ICT1222', 1, 'practical', '2025-02-06', 4, 'not proper reason', 'rejected'),
+('M0006', 'TG/2023/0001', 'TMS1233', 1, 'theory', '2025-02-05', 3, 'fever', 'approved'),
+('M0007', 'TG/2023/0002', 'TCS1212', 2, 'theory', '2025-02-14', 2, 'fever', 'approved'),
+('M0008', 'TG/2023/0003', 'ICT1253', 3, 'practical', '2025-02-18', 2, 'fever', 'approved'),
+('M0009', 'TG/2023/0004', 'ICT1253', 4, 'theory', '2025-02-25', 2, 'fever', 'approved'),
+('M0010', 'TG/2023/0007', 'ICT1233', 7, 'theory', '2025-03-17', 2, 'fever', 'approved'),
+('M0011', 'TG/2023/0010', 'ENG1222', 10, 'theory', '2025-04-11', 2, 'fever', 'approved');
