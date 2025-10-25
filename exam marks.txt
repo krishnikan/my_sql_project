@@ -636,7 +636,6 @@ insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
               else "F"
           end;
           
-<<<<<<< HEAD
 
            update student
      set user_id=("u028")
@@ -711,5 +710,3 @@ update student
  update student
      set user_id=("U021")
      where student_id="TG/2023/0011";
-=======
->>>>>>> 8a6b12a9862e9d5ff94eb73bba973c23546354a9
