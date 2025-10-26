@@ -129,7 +129,11 @@ values("TG/2023/0001",70,40,62,56),
  ("TG/2023/0011",65,78,67,56);
 
  update eng1222
+<<<<<<< HEAD
  set ca_final=(quizz + assessment + mid_t)/3;
+=======
+ set ca_final=(quizz + assessment + mid_t +)/3;
+>>>>>>> 79596a2fc616af91c623b3cec64c6fe4af1d0b10
 
 
 
@@ -141,7 +145,7 @@ set grade = case
 when final_mark >=85 then "A+"
 when final_mark >=75 then "A"
 when final_mark >=70 then "A-"
-when final_mark >=65 then "B+"
+when final_mawhere student_id="TG/2023/0002";rk >=65 then "B+"
 when final_mark >=60 then "B"
 when final_mark >=55 then "B-"
 when final_mark >=50 then "C+"
@@ -151,6 +155,35 @@ when final_mark >=35 then "D"
 else "F"
 end;
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+ select * from eng1222;
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| student_id   | quizz | assessment | mid_p | mid_t | CA_Final | end_p | end_t | final_mark | grade |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+| TG/2023/0001 |    60 |         70 |  NULL |    65 |       65 |  NULL |    88 |       76.5 | A     |
+| TG/2023/0002 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | A-    |
+| TG/2023/0003 |    89 |         96 |  NULL |    68 |       84 |  NULL |    56 |         70 | A-    |
+| TG/2023/0004 |    59 |         98 |  NULL |    66 |       74 |  NULL |    67 |       70.5 | A-    |
+| TG/2023/0005 |    72 |         64 |  NULL |    89 |       75 |  NULL |    78 |       76.5 | A     |
+| TG/2023/0006 |    81 |         63 |  NULL |    69 |       71 |  NULL |    74 |       72.5 | A-    |
+| TG/2023/0007 |    67 |         98 |  NULL |    65 |       77 |  NULL |    91 |         84 | A     |
+| TG/2023/0008 |    74 |         63 |  NULL |    78 |       72 |  NULL |    59 |       65.5 | B+    |
+| TG/2023/0009 |    65 |         87 |  NULL |    68 |       73 |  NULL |    79 |         76 | A     |
+| TG/2023/0010 |    78 |         61 |  NULL |    82 |       74 |  NULL |    81 |       77.5 | A     |
+| TG/2023/0011 |    74 |         65 |  NULL |    78 |       72 |  NULL |    76 |         74 | A-    |
++--------------+-------+------------+-------+-------+----------+-------+-------+------------+-------+
+
+=========================================================================================================================================
+21/10/2025
+===================================================================================================================================================
+
+>>>>>>> 79596a2fc616af91c623b3cec64c6fe4af1d0b10
 insert into ict1212(student_id,quizz,assessment,mid_t,end_t)
 values("TG/2023/0001",70,40,62,56),
 ("TG/2023/0002",73,34,67,56),
@@ -608,9 +641,15 @@ update tms1233
           when final_mark >=35 then "D"
          else "F"
      end;
+<<<<<<< HEAD
 	 
 	 
 	 insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+=======
+
+
+insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+>>>>>>> 79596a2fc616af91c623b3cec64c6fe4af1d0b10
      values("TG/2021/0014",67,34,29,78),
      ("TG/2021/0016",63,39,59,78),
      ("TG/2022/0012",62,49,19,56),
@@ -817,4 +856,106 @@ update tms1233
 
  update tms1233
      set final_mark=(ca_final+end_t)/2;
+<<<<<<< HEAD
 	 
+=======
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+     CREATE OR REPLACE VIEW student_final_grade AS
+SELECT 
+    s.student_id,
+    s.lastname,
+
+    eng.grade AS eng1222,
+    a.grade AS ict1212,
+    b.grade AS ict1222,
+    c.grade AS ict1233,
+    d.grade AS ict1242,
+    e.grade AS ict1253,
+    f.grade AS tcs1212,
+    g.grade AS tms1233,
+
+   
+    ROUND((
+        (
+            
+            (CASE eng.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE a.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE b.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE c.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE d.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE e.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE f.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE g.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+        ) / 19  -- total credits
+    ), 2) AS gpa  -- rounded to 2 decimals
+
+FROM student s
+JOIN eng1222 eng ON s.student_id = eng.student_id
+JOIN ict1212 a ON s.student_id = a.student_id
+JOIN ict1222 b ON s.student_id = b.student_id
+JOIN ict1233 c ON s.student_id = c.student_id
+JOIN ict1242 d ON s.student_id = d.student_id
+JOIN ict1253 e ON s.student_id = e.student_id
+JOIN tcs1212 f ON s.student_id = f.student_id
+JOIN tms1233 g ON s.student_id = g.student_id;
+>>>>>>> 79596a2fc616af91c623b3cec64c6fe4af1d0b10

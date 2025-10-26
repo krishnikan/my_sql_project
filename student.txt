@@ -1,0 +1,190 @@
+/* PS C:\Users\ab> mysql -u root -p
+Enter password: **** */
+
+        /*========================================================
+        =           CRAETE AND USE DATABASE FOT                  =
+        ========================================================*/
+
+CREATE DATABASE fot;
+USE fot;
+
+        /*========================================================
+        =                CRAETE TABLE STUDENT                    =
+        ========================================================*/
+
+CREATE TABLE student
+    (student_id CHAR(12) PRIMARY KEY,
+    NIC CHAR(12),
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    course VARCHAR(3),
+    phone_no char(10),
+    age INT,
+    address VARCHAR(300),
+    gender VARCHAR(10));
+
+/*
+SHOW tables;
++---------------+
+| Tables_in_fot |
++---------------+
+| student       |
++---------------+
+
+DESC student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | char(12)     | NO   | PRI | NULL    |       |
+| NIC        | char(12)     | YES  |     | NULL    |       |
+| firstname  | varchar(20)  | YES  |     | NULL    |       |
+| lastname   | varchar(20)  | YES  |     | NULL    |       |
+| course     | varchar(3)   | YES  |     | NULL    |       |
+| phone_no   | char(10)     | YES  |     | NULL    |       |
+| age        | int          | YES  |     | NULL    |       |
+| address    | varchar(300) | YES  |     | NULL    |       |
+| gender     | varchar(10)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+*/
+
+        /*========================================================
+        =           INSERT STUDENT DETAIS 11                     =
+        ========================================================*/
+
+INSERT INTO student VALUES
+("TG/2023/0001","200319210901","Amal","Perera","ICT","0712345612","21","Colombo","Male"),
+("TG/2023/0002","200319210902","Kavindu","Silva","ICT","0723456723","22","Galle","Male"),
+("TG/2023/0003","200319210903","Sajini","Fernando","ICT","0734567834","20","Matara","Female"),
+("TG/2023/0004","200319210904","Nimesha","Jayasinghe","ICT","0745678945","23","Kandy","Female"),
+("TG/2023/0005","200319210905","Tharindu","Rajapaksha","ICT","0756789056","21","Kurunegala","Male"),
+("TG/2023/0006","200319210906","Pasan","Weerasinghe","ICT","0767890167","22","Colombo","Male"),
+("TG/2023/0007","200319210907","Ruwani","Dissanayake","ICT","0778901278","20","Gampaha","Female"),
+("TG/2023/0008","200319210908","Ishara","Abeywardena","ICT","0789012389","23","Matale","Female"),
+("TG/2023/0009","200319210909","Supun","Bandara","ICT","0790123490","21","Badulla","Male"),
+("TG/2023/0010","200319210910","Chathuri","Gunasekara","ICT","0701234501","22","Hambantota","Female"),
+("TG/2023/0011","200319210911","Lakshan","Karunaratne","ICT","0712348912","23","Anuradhapura","Male");
+
+
+/*
+SELECT * FROM student;
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+| student_id   | NIC          | firstname | lastname    | course | phone_no   | age  | address      | gender |
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+| TG/2023/0001 | 200319210901 | Amal      | Perera      | ICT    | 0712345612 |   21 | Colombo      | Male   |
+| TG/2023/0002 | 200319210902 | Kavindu   | Silva       | ICT    | 0723456723 |   22 | Galle        | Male   |
+| TG/2023/0003 | 200319210903 | Sajini    | Fernando    | ICT    | 0734567834 |   20 | Matara       | Female |
+| TG/2023/0004 | 200319210904 | Nimesha   | Jayasinghe  | ICT    | 0745678945 |   23 | Kandy        | Female |
+| TG/2023/0005 | 200319210905 | Tharindu  | Rajapaksha  | ICT    | 0756789056 |   21 | Kurunegala   | Male   |
+| TG/2023/0006 | 200319210906 | Pasan     | Weerasinghe | ICT    | 0767890167 |   22 | Colombo      | Male   |
+| TG/2023/0007 | 200319210907 | Ruwani    | Dissanayake | ICT    | 0778901278 |   20 | Gampaha      | Female |
+| TG/2023/0008 | 200319210908 | Ishara    | Abeywardena | ICT    | 0789012389 |   23 | Matale       | Female |
+| TG/2023/0009 | 200319210909 | Supun     | Bandara     | ICT    | 0790123490 |   21 | Badulla      | Male   |
+| TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    | 0701234501 |   22 | Hambantota   | Female |
+| TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    | 0712348912 |   23 | Anuradhapura | Male   |
++--------------+--------------+-----------+-------------+--------+------------+------+--------------+--------+
+*/
+
+        /*========================================================
+        =           DELETE phone_no COULUM                       =
+        ========================================================*/
+
+ALTER TABLE student DROP phone_no;
+
+/*
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+| student_id   | NIC          | firstname | lastname    | course | age  | address      | gender |
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+| TG/2023/0001 | 200319210901 | Amal      | Perera      | ICT    |   21 | Colombo      | Male   |
+| TG/2023/0002 | 200319210902 | Kavindu   | Silva       | ICT    |   22 | Galle        | Male   |
+| TG/2023/0003 | 200319210903 | Sajini    | Fernando    | ICT    |   20 | Matara       | Female |
+| TG/2023/0004 | 200319210904 | Nimesha   | Jayasinghe  | ICT    |   23 | Kandy        | Female |
+| TG/2023/0005 | 200319210905 | Tharindu  | Rajapaksha  | ICT    |   21 | Kurunegala   | Male   |
+| TG/2023/0006 | 200319210906 | Pasan     | Weerasinghe | ICT    |   22 | Colombo      | Male   |
+| TG/2023/0007 | 200319210907 | Ruwani    | Dissanayake | ICT    |   20 | Gampaha      | Female |
+| TG/2023/0008 | 200319210908 | Ishara    | Abeywardena | ICT    |   23 | Matale       | Female |
+| TG/2023/0009 | 200319210909 | Supun     | Bandara     | ICT    |   21 | Badulla      | Male   |
+| TG/2023/0010 | 200319210910 | Chathuri  | Gunasekara  | ICT    |   22 | Hambantota   | Female |
+| TG/2023/0011 | 200319210911 | Lakshan   | Karunaratne | ICT    |   23 | Anuradhapura | Male   |
++--------------+--------------+-----------+-------------+--------+------+--------------+--------+
+*/
+
+        /*========================================================
+        =           CREATE TABLE FOR MULTIVALUES                 =
+        ========================================================*/
+
+CREATE TABLE student_phone_no
+    (student_id char(12),phone_no char(10),
+    PRIMARY KEY(student_id,phone_no),
+    FOREIGN KEY(student_id) REFERENCES student(student_id));
+
+
+        /*========================================================
+        =        INSERT MULTIVALUE PHONE NO DATA                 =
+        ========================================================*/
+
+INSERT INTO student_phone_no (student_id, phone_no) VALUES
+("TG/2023/0001", "0712345612"),
+("TG/2023/0001", "0771112233"),
+("TG/2023/0002", "0762223344"),
+("TG/2023/0003", "0734567834"),
+("TG/2023/0003", "0753334455"),
+("TG/2023/0004", "0745678945"),
+("TG/2023/0005", "0756789056"),
+("TG/2023/0005", "0715556677"),
+("TG/2023/0006", "0786667788"),
+("TG/2023/0007", "0778901278"),
+("TG/2023/0007", "0797778899"),
+("TG/2023/0008", "0728889900"),
+("TG/2023/0009", "0790123490"),
+("TG/2023/0010", "0710001122"),
+("TG/2023/0011", "0712348912"),
+("TG/2023/0011", "0751112233");
+
+
+
+        /*========================================================
+        =        INSERT ANOTHER 5 STUDENT VALUES                 =
+        ========================================================*/
+
+INSERT INTO student VALUES
+    ("TG/2023/0012","200319210912","Dilini","Wijesigha","ICT","21","Alawwa","Female"),
+    ("TG/2023/0013","200319210913","Shean","Ekanayaka","ICT","22","negambo","Male"),
+    ("TG/2023/0014","200319210914","Hashini","Rathanayake","ICT","21","Kegalle","Female"),
+    ("TG/2023/0015","200319210915","Madhushan","Jayavarthana","ICT","23","polgahawela","Male"),
+    ("TG/2023/0016","200319210916","Nadeeshan","Herath","ICT","20","Trincomale","Male");
+
+
+        /*========================================================
+        =        DELETE INSERT  5 STUDENT VALUES                 =
+        ========================================================*/
+
+DELETE FROM student     
+    WHERE student_id 
+    BETWEEN "TG/2023/0012" AND "TG/2023/0016";
+
+
+        /*========================================================
+        =      REPEAT ENTER THE ANOTHER 5 STUDENT VALUES         =
+        ========================================================*/
+
+INSERT INTO student VALUES
+    ("TG/2022/0012","200319210912","Dilini","Wijesigha","ICT","21","Alawwa","Female"),
+    ("TG/2022/0013","200319210913","Shean","Ekanayaka","ICT","22","negambo","Male"),
+    ("TG/2021/0014","200319210914","Hashini","Rathanayake","ICT","21","Kegalle","Female"),
+    ("TG/2022/0015","200319210915","Madhushan","Jayavarthana","ICT","23","polgahawela","Male"),
+    ("TG/2021/0016","200319210916","Nadeeshan","Herath","ICT","20","Trincomale","Male");
+
+
+
+
+CREATE TABLE student_course(student_id char(12),course_id char(7),primary key(student_id,course_id));
+
+DELIMITER //
+insert into student_course values (select student_id from student;,select course_id from course;)//
+
+
+
+
+
+
+
