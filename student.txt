@@ -181,7 +181,7 @@ CREATE TABLE student_course(student_id char(12),course_id char(7),primary key(st
 
 DELIMITER //
 insert into student_course values (select student_id from student;,select course_id from course;)//
-
+Delimiter ;
 
 
 
