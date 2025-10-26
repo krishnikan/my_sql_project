@@ -1,0 +1,63 @@
+============create user admin==============
+
+
+
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'Admin@123';
+
+GRANT ALL PRIVILEGES ON fot.* TO 'admin_user'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+mysql> SHOW GRANTS FOR 'admin_user'@'localhost';
++-------------------------------------------------------------------------------+
+| Grants for admin_user@localhost                                               |
++-------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `admin_user`@`localhost`                                |
+| GRANT ALL PRIVILEGES ON `fot`.* TO `admin_user`@`localhost` WITH GRANT OPTION |
++-------------------------------------------------------------------------------
+
+==============create user dean=============
+CREATE USER 'dean_user'@'localhost' IDENTIFIED BY 'Dean@123';
+GRANT ALL PRIVILEGES ON fot.* TO 'dean_user'@'localhost';
+FLUSH PRIVILEGES;
+
+mysql> SHOW GRANTS FOR 'dean_user'@'localhost';
++------------------------------------------------------------+
+| Grants for dean_user@localhost                             |
++------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `dean_user`@`localhost`              |
+| GRANT ALL PRIVILEGES ON `fot`.* TO `dean_user`@`localhost` |
++------------------------------------------------------------+
+
+=============create user lecturer=================
+CREATE USER 'lecturer_user'@'localhost' IDENTIFIED BY 'Lec@123';
+
+GRANT ALL PRIVILEGES ON fot.* TO 'lecturer_user'@'localhost';
+REVOKE GRANT OPTION ON fot.* FROM 'lecturer_user'@'localhost';
+REVOKE CREATE USER ON *.* FROM 'lecturer_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+mysql> SHOW GRANTS FOR 'lecturer_user'@'localhost';
++----------------------------------------------------------------+
+| Grants for lecturer_user@localhost                             |
++----------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `lecturer_user`@`localhost`              |
+| GRANT ALL PRIVILEGES ON `fot`.* TO `lecturer_user`@`localhost` |
++----------------------------------------------------------------+
+
+
+================create user Technical_Officer============================
+CREATE USER 'tech_user'@'localhost' IDENTIFIED BY 'Tech@123';
+
+GRANT SELECT, INSERT, UPDATE ON fot.attendance_below_80 TO 'tech_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON fot.AttendanceSummary TO 'tech_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON fot.attendance_above_80 TO 'tech_user'@'localhost';
+
+
+
+==================create user student=======================================
+CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'Stu@123';
+GRANT SELECT ON fot.student_final_gpa TO 'student_user'@'localhost';
+GRANT SELECT ON fot.student_final_grade TO 'student_user'@'localhost';
+
