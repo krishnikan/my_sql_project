@@ -23,6 +23,11 @@ VALUES
 ('G008', 'Priya Selvi', 'Aunt', '0703334455', 'priya.selvi@yahoo.com', 'Mannar, Sri Lanka', 'Bank Clerk', 'TG/2023/0008'),
 ('G009', 'Balachandran', 'Brother', '0714445566', 'balachandran@gmail.com', 'Matara, Sri Lanka', 'Driver', 'TG/2023/0009'),
 ('G010', 'Anjali Devi', 'Mother', '0725556677', 'anjali.devi@gmail.com', 'Negombo, Sri Lanka', 'Teacher', 'TG/2023/0010'),
-('G011', 'Selvaraj', 'Father', '0736667788', 'selvaraj@gmail.com', 'Kilinochchi, Sri Lanka', 'Businessman', 'TG/2023/0011');
+('G011', 'Selvaraj', 'Father', '0736667788', 'selvaraj@gmail.com', 'Kilinochchi, Sri Lanka', 'Businessman', 'TG/2023/0011'),
+('G012', 'Kumari Perera', 'Mother', '0778899001', 'kumari.perera@gmail.com', 'Alawwa, Sri Lanka', 'Teacher', 'TG/2022/0012'),
+('G013', 'Ekanayaka Bandara', 'Father', '0712233445', 'ekanayaka.bandara@gmail.com', 'Negombo, Sri Lanka', 'Police Officer', 'TG/2022/0013'),
+('G014', 'Rathnayake Sunil', 'Father', '0753344556', 'rathnayake.sunil@gmail.com', 'Kegalle, Sri Lanka', 'Farmer', 'TG/2021/0014'),
+('G015', 'Jayavarthana Malani', 'Mother', '0764455667', 'malani.jaya@gmail.com', 'Polgahawela, Sri Lanka', 'Nurse', 'TG/2022/0015'),
+('G016', 'Herath Nimal', 'Father', '0725566778', 'nimal.herath@gmail.com', 'Trincomalee, Sri Lanka', 'Businessman', 'TG/2021/0016');
 
 

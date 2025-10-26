@@ -50,16 +50,14 @@ mysql> SHOW GRANTS FOR 'lecturer_user'@'localhost';
 ================create user Technical_Officer============================
 CREATE USER 'tech_user'@'localhost' IDENTIFIED BY 'Tech@123';
 
-GRANT SELECT, INSERT, UPDATE ON fot.attendance TO 'tech_user'@'localhost';
-GRANT SELECT, INSERT, UPDATE ON fot.attendance_summary TO 'tech_user'@'localhost';
-
+GRANT SELECT, INSERT, UPDATE ON fot.attendance_below_80 TO 'tech_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON fot.AttendanceSummary TO 'tech_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON fot.attendance_above_80 TO 'tech_user'@'localhost';
 
 
 
 ==================create user student=======================================
 CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'Stu@123';
-GRANT SELECT ON fot.final_attendance TO 'student_user'@'localhost';
-GRANT SELECT ON fot.final_marks TO 'student_user'@'localhost';
-GRANT SELECT ON fot.grades TO 'student_user'@'localhost';
-
+GRANT SELECT ON fot.student_final_gpa TO 'student_user'@'localhost';
+GRANT SELECT ON fot.student_final_grade TO 'student_user'@'localhost';
 
