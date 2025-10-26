@@ -38,3 +38,5 @@ select * from course;
 | TCS1212   | Fundamentals of Management            |      2 |      2 |      NULL |
 | TMS1233   | Discrete Mathematics                  |      3 |      3 |      NULL |
 +-----------+---------------------------------------+--------+--------+-----------+
+
+-- This branch contained my old code and commits. After I turned it into a fork, I added my new code and commits.
