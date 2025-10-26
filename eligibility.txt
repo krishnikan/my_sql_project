@@ -16,10 +16,10 @@
 
 
         /*========================================================
-        =                STUDENT TG/2023/0001                    =
+        =        TG/2023/0001 STUDENT Eligibility                =
         ========================================================*/
 
-CREATE VIEW TG_2023_0001 AS
+CREATE VIEW TG_2023_0001_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -110,11 +110,11 @@ WHERE TMS1233.student_id = "TG/2023/0001";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0002                    =
+        =       TG/2023/0002 STUDENT Eligibility                 =
         ========================================================*/
 
 
-CREATE VIEW TG_2023_0002 AS
+CREATE VIEW TG_2023_0002_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -206,10 +206,10 @@ WHERE TMS1233.student_id = "TG/2023/0002";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0003                    =
+        =     TG/2023/0003 STUDENT Eligibility                   =
         ========================================================*/
 
-CREATE VIEW TG_2023_0003 AS
+CREATE VIEW TG_2023_0003_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -301,12 +301,12 @@ WHERE TMS1233.student_id = "TG/2023/0003";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0004                    =
+        =          TG/2023/0004  STUDENT Eligibility             =
         ========================================================*/
 
 
 
-CREATE VIEW TG_2023_0004 AS
+CREATE VIEW TG_2023_0004_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -397,12 +397,12 @@ WHERE TMS1233.student_id = "TG/2023/0004";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0005                    =
+        =         TG/2023/0005 STUDENT  Eligibility              =
         ========================================================*/
 
 
 
-CREATE VIEW TG_2023_0005 AS
+CREATE VIEW TG_2023_0005_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -493,10 +493,10 @@ WHERE TMS1233.student_id = "TG/2023/0005";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0006                    =
+        =       TG/2023/0006 STUDENT Eligibility                 =
         ========================================================*/
 
-CREATE VIEW TG_2023_0006 AS
+CREATE VIEW TG_2023_0006_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -588,10 +588,10 @@ WHERE TMS1233.student_id = "TG/2023/0006";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0007                    =
+        =       TG/2023/0007   STUDENT Eligibility               =
         ========================================================*/
 
-CREATE VIEW TG_2023_0007 AS
+CREATE VIEW TG_2023_0007_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -683,11 +683,11 @@ WHERE TMS1233.student_id = "TG/2023/0007";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0008                    =
+        =      TG/2023/0008 STUDENT Eligibility                  =
         ========================================================*/
 
 
-CREATE VIEW TG_2023_0008 AS
+CREATE VIEW TG_2023_0008_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -781,11 +781,11 @@ WHERE TMS1233.student_id = "TG/2023/0008";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0009                    =
+        =      TG/2023/0009 STUDENT Eligibility                  =
         ========================================================*/
 
 
-    CREATE VIEW TG_2023_0009 AS
+    CREATE VIEW TG_2023_0009_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -880,12 +880,12 @@ WHERE TMS1233.student_id = "TG/2023/0009";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0010                    =
+        =      TG/2023/0010 STUDENT Eligibility                  =
         ========================================================*/
 
 
 
-CREATE VIEW TG_2023_0010 AS
+CREATE VIEW TG_2023_0010_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
@@ -977,11 +977,11 @@ WHERE TMS1233.student_id = "TG/2023/0010";
 
 
         /*========================================================
-        =                STUDENT TG/2023/0011                    =
+        =      TG/2023/0011 STUDENT Eligibility                  =
         ========================================================*/
 
 
-CREATE VIEW TG_2023_0011 AS
+CREATE VIEW TG_2023_0011_Stu_Eligiblity AS
 
 SELECT "ENG1222" AS "course_id", "English II" AS "course_name",
        ENG1222.CA_Final,
