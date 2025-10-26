@@ -1174,7 +1174,7 @@ select * from course_tms1233_eligibility;
 
 
         /*========================================================
-        =            Student_course_eligibility                  =
+        =    Student_course_eligibility without attendance       =
         ========================================================*/
 
 CREATE VIEW Student_course_eligibility As
@@ -1205,8 +1205,12 @@ CREATE VIEW Student_course_eligibility As
     JOIN 
     course_TMS1233_eligibility as h on a.student_id=h.student_id;
 
-
 SELECT* from Student_course_eligibility;
+
+
+
+
+
 
 /*###############  ALL REFERENCE INFORMATION  ###############
 
@@ -1220,6 +1224,10 @@ SELECT* from Student_course_eligibility;
 
                 NC : Not Decided  */
 
+
+        /*========================================================
+        =             Student_attendance_eligibility             =
+        ========================================================*/
 
 
 CREATE VIEW student_attendance_eligibility AS
@@ -1236,6 +1244,9 @@ SELECT
 FROM AttendanceSummary
 GROUP BY student_id;
 
+        /*========================================================
+        = procedure Student_course_eligibility with attendance   =
+        ========================================================*/
 
 DELIMITER //
 CREATE PROCEDURE FINAL_EXAME_ELIGIBILITY()
@@ -1320,6 +1331,117 @@ DELIMITER ;
 CALL FINAL_EXAME_ELIGIBILITY();
 
 
+        /*========================================================
+        =    VIEW Student_course_eligibility with attendance     =
+        ========================================================*/
+
+CREATE VIEW FINAL_EXAME_ELIGIBILITY AS
+
+    SELECT s.student_id,
+    c.name as course_name ,
+    CASE 
+        WHEN s.ENG1222 = "EL" AND a.ENG1222 = "Eligible" then "EL"
+        WHEN s.ENG1222 != "EL" and a.ENG1222 = "Eligible" then "NE*"
+         WHEN s.ENG1222 = "EL" AND a.ENG1222 != "Eligible" then "NE"
+        WHEN s.ENG1222 != "EL" and a.ENG1222 != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ENG1222_Overall,
+
+    CASE 
+        WHEN s.ICT1212 = "EL" AND a.ICT1212 = "Eligible" then "EL"
+        WHEN s.ICT1212 != "EL" and a.ICT1212 = "Eligible" then "NE*"
+         WHEN s.ICT1212 = "EL" AND a.ICT1212 != "Eligible" then "NE"
+        WHEN s.ICT1212 != "EL" and a.ICT1212 != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ICT1212_Overall,
+
+    CASE 
+        WHEN s.ICT1222 = "EL" AND a.ICT1222 = "Eligible" then "EL"
+        WHEN s.ICT1222 != "EL" and a.ICT1222 = "Eligible" then "NE*"
+         WHEN s.ICT1222 = "EL" AND a.ICT1222 != "Eligible" then "NE"
+        WHEN s.ICT1222 != "EL" and a.ICT1222 != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ICT1222_Overall,
+
+    CASE 
+        WHEN s.ICT1233 = "EL" AND a.ICT1233 = "Eligible" then "EL"
+        WHEN s.ICT1233 != "EL" and a.ICT1233 = "Eligible" then "NE*"
+         WHEN s.ICT1233 = "EL" AND a.ICT1233 != "Eligible" then "NE"
+        WHEN s.ICT1233 != "EL" and a.ICT1233 != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ICT1233_Overall,
+
+    CASE 
+        WHEN s.ICT1242  = "EL" AND a.ICT1242  = "Eligible" then "EL"
+        WHEN s.ICT1242  != "EL" and a.ICT1242  = "Eligible" then "NE*"
+         WHEN s.ICT1242  = "EL" AND a.ICT1242  != "Eligible" then "NE"
+        WHEN s.ICT1242  != "EL" and a.ICT1242  != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ICT1242_Overall,
+
+    CASE 
+        WHEN s.ICT1253  = "EL" AND a.ICT1253  = "Eligible" then "EL"
+        WHEN s.ICT1253  != "EL" and a.ICT1253  = "Eligible" then "NE*"
+         WHEN s.ICT1253  = "EL" AND a.ICT1253  != "Eligible" then "NE"
+        WHEN s.ICT1253  != "EL" and a.ICT1253  != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS ICT1253_Overall,
+
+    CASE 
+        WHEN s.TCS1212  = "EL" AND a.TCS1212  = "Eligible" then "EL"
+        WHEN s.TCS1212  != "EL" and a.TCS1212  = "Eligible" then "NE*"
+         WHEN s.TCS1212  = "EL" AND a.TCS1212  != "Eligible" then "NE"
+        WHEN s.TCS1212  != "EL" and a.TCS1212  != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS TCS1212_Overall,
+
+        CASE 
+        WHEN s.TMS1233  = "EL" AND a.TMS1233  = "Eligible" then "EL"
+        WHEN s.TMS1233  != "EL" and a.TMS1233  = "Eligible" then "NE*"
+         WHEN s.TMS1233  = "EL" AND a.TMS1233  != "Eligible" then "NE"
+        WHEN s.TMS1233  != "EL" and a.TMS1233  != "Eligible" then "NE**"
+        ELSE  "NC"
+    END AS TMS1233_Overall
+
+    FROM Student_course_eligibility as s
+    join student_attendance_eligibility as a ON s.student_id=a.student_id
+    join student_course as sc ON sc.student_id=s.student_id
+    join course as c ON c.course_id=sc.course_id limit 8
+    ;
+
+
+        /*========================================================
+        =    create procedure student_id with all course         =
+        ========================================================*/
+
+DELIMITER //
+
+CREATE PROCEDURE get_final_exam_eligibility(IN tg_id CHAR(12))
+BEGIN
+    SELECT * 
+    FROM FINAL_EXAME_ELIGIBILITY
+    WHERE student_id = tg_id;  -- filter by student ID
+END //
+
+DELIMITER ;
+
+
+
+
+        /*========================================================
+        =    create procedure student_id with  one course        =
+        ========================================================*/
+
+DELIMITER //
+
+CREATE PROCEDURE get_final_exam_eligibility(IN tg_id CHAR(12),cour_id(7))
+BEGIN
+    SELECT  cour_id
+    FROM FINAL_EXAME_ELIGIBILITY
+    WHERE student_id = tg_id;  -- filter by student ID
+END //
+
+DELIMITER ;
 
 
 
