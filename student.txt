@@ -177,15 +177,9 @@ INSERT INTO student VALUES
 
 CREATE TABLE student_course(student_id char(12),course_id char(7),primary key(student_id,course_id));
 
-
-INSERT INTO student_course (student_id, course_id)
-SELECT student_id, course_id
-FROM student
-JOIN course;
-
-
-
-
+DELIMITER //
+insert into student_course values (select student_id from student;,select course_id from course;)//
+Delimiter ;
 
 
 
