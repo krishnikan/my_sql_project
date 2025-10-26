@@ -1,0 +1,33 @@
+CREATE TABLE Guardian (
+    Guardian_ID CHAR(10) NOT NULL,
+    Name VARCHAR(100),
+    Relationship VARCHAR(50),
+    Phone_No CHAR(10),
+    Email VARCHAR(100),
+    Address VARCHAR(255),
+    Occupation VARCHAR(100),
+    student_id CHAR(12),
+    PRIMARY KEY(Guardian_ID,student_id),
+    FOREIGN KEY(student_id) REFERENCES student(student_id));
+
+INSERT INTO Guardian 
+(Guardian_ID, Name, Relationship, Phone_No, Email, Address, Occupation, student_id)
+VALUES
+('G001', 'Ravi Kumar', 'Father', '0771234567', 'ravi.kumar@gmail.com', 'Colombo, Sri Lanka', 'Teacher', 'TG/2023/0001'),
+('G002', 'Sita Devi', 'Mother', '0719876543', 'sita.devi@gmail.com', 'Kandy, Sri Lanka', 'Nurse', 'TG/2023/0002'),
+('G003', 'Arun Raj', 'Uncle', '0756543210', 'arun.raj@yahoo.com', 'Jaffna, Sri Lanka', 'Engineer', 'TG/2023/0003'),
+('G004', 'Meena Lakshmi', 'Sister', '0762345678', 'meena.lakshmi@gmail.com', 'Batticaloa, Sri Lanka', 'Accountant', 'TG/2023/0004'),
+('G005', 'Kumarasamy', 'Grandfather', '0728765432', 'kumarasamy@gmail.com', 'Trincomalee, Sri Lanka', 'Retired Officer', 'TG/2023/0005'),
+('G006', 'Shanthi Raj', 'Mother', '0781112233', 'shanthi.raj@gmail.com', 'Galle, Sri Lanka', 'Doctor', 'TG/2023/0006'),
+('G007', 'Murugan', 'Father', '0792223344', 'murugan@gmail.com', 'Vavuniya, Sri Lanka', 'Farmer', 'TG/2023/0007'),
+('G008', 'Priya Selvi', 'Aunt', '0703334455', 'priya.selvi@yahoo.com', 'Mannar, Sri Lanka', 'Bank Clerk', 'TG/2023/0008'),
+('G009', 'Balachandran', 'Brother', '0714445566', 'balachandran@gmail.com', 'Matara, Sri Lanka', 'Driver', 'TG/2023/0009'),
+('G010', 'Anjali Devi', 'Mother', '0725556677', 'anjali.devi@gmail.com', 'Negombo, Sri Lanka', 'Teacher', 'TG/2023/0010'),
+('G011', 'Selvaraj', 'Father', '0736667788', 'selvaraj@gmail.com', 'Kilinochchi, Sri Lanka', 'Businessman', 'TG/2023/0011'),
+('G012', 'Kumari Perera', 'Mother', '0778899001', 'kumari.perera@gmail.com', 'Alawwa, Sri Lanka', 'Teacher', 'TG/2022/0012'),
+('G013', 'Ekanayaka Bandara', 'Father', '0712233445', 'ekanayaka.bandara@gmail.com', 'Negombo, Sri Lanka', 'Police Officer', 'TG/2022/0013'),
+('G014', 'Rathnayake Sunil', 'Father', '0753344556', 'rathnayake.sunil@gmail.com', 'Kegalle, Sri Lanka', 'Farmer', 'TG/2021/0014'),
+('G015', 'Jayavarthana Malani', 'Mother', '0764455667', 'malani.jaya@gmail.com', 'Polgahawela, Sri Lanka', 'Nurse', 'TG/2022/0015'),
+('G016', 'Herath Nimal', 'Father', '0725566778', 'nimal.herath@gmail.com', 'Trincomalee, Sri Lanka', 'Businessman', 'TG/2021/0016');
+
+

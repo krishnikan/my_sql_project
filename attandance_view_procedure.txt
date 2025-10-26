@@ -1,0 +1,147 @@
+===============================views and procedures =================================================================
+
+==================================Attendance summery============================================
+CREATE OR REPLACE VIEW AttendanceSummary AS
+SELECT
+    a.student_id,
+    a.course_id,
+
+        SUM(
+        CASE 
+            WHEN a.status = 'present' THEN a.time_allocation
+            WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+            ELSE 0
+        END
+    ) AS attended_hours,
+
+    SUM(a.time_allocation) AS total_hours,
+
+    ROUND(
+        SUM(
+            CASE 
+                WHEN a.status = 'present' THEN a.time_allocation
+                WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+                ELSE 0
+            END
+        ) / SUM(a.time_allocation) * 100, 2
+    ) AS percentage,
+
+    CASE 
+        WHEN ROUND(
+            SUM(
+                CASE 
+                    WHEN a.status = 'present' THEN a.time_allocation
+                    WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+                    ELSE 0
+                END
+            ) / SUM(a.time_allocation) * 100, 2
+        ) >= 80 THEN 'Eligible' 
+        ELSE 'not eligible' 
+    END AS eligible
+
+FROM Attendance a
+LEFT JOIN Medical m
+    ON a.student_id = m.student_id
+    AND a.course_id = m.course_id
+    AND a.week_no = m.week_no
+    AND a.session_type = m.session_type
+    AND m.status = 'approved'  
+GROUP BY a.student_id, a.course_id;
+
+
+=======================Create view attendance below 80 ================================
+
+create view attendance_below_80 as
+select 
+	student_id,course_id
+	from AttendanceSummary
+	where percentage<80.00;
+
+=======================Create view attendance above 80 ================================
+
+create view attendance_above_80 as
+select 
+	student_id,course_id
+	from AttendanceSummary
+	where percentage>=80.00;
+
+
+
+
+======================GET Batch Summary by course===================
+DELIMITER //
+
+CREATE PROCEDURE batch_summary_by_course(IN input_course_id VARCHAR(12))
+BEGIN
+    SELECT 
+        student_id,
+        course_id,
+        attended_hours,
+        total_hours,
+        percentage,
+        eligible
+    FROM AttendanceSummary
+    WHERE course_id = input_course_id
+    ORDER BY student_id;
+END //
+
+DELIMITER ;
+
+
+================================Get Student Summary
+
+
+DELIMITER //
+
+CREATE PROCEDURE student_summary(IN input_student_id VARCHAR(12))
+BEGIN
+    SELECT 
+        course_id,
+        attended_hours,
+        total_hours,
+        percentage,
+        eligible
+    FROM AttendanceSummary
+    WHERE student_id = input_student_id
+    ORDER BY course_id;
+END //
+
+DELIMITER ;
+
+
+=========================================
+
+DELIMITER //
+CREATE PROCEDURE GetStudentCourseDetail(IN regNo VARCHAR(12), IN courseCode VARCHAR(12))
+BEGIN
+    SELECT * FROM AttendanceSummary
+    WHERE student_id = regNo AND course_id = courseCode;
+END //
+DELIMITER ;
+
+
+
+==========================================
+
+DELIMITER //
+CREATE PROCEDURE GetTheoryPracticalSummaryWithMedical(IN courseCode VARCHAR(10), IN mode VARCHAR(10))
+BEGIN
+    IF mode = 'theory' THEN
+        SELECT * FROM AttendanceSummary 
+        WHERE course_id = courseCode 
+          AND course_id IN (
+              SELECT course_id FROM Attendance WHERE session_type='theory'
+          );
+    ELSEIF mode = 'practical' THEN
+        SELECT * FROM AttendanceSummary 
+        WHERE course_id = courseCode 
+          AND course_id IN (
+              SELECT course_id FROM Attendance WHERE session_type='practical'
+          );
+    ELSE
+        SELECT * FROM AttendanceSummary
+        WHERE course_id = courseCode;
+    END IF;
+END //
+DELIMITER ;
+

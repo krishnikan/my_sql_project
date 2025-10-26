@@ -1,0 +1,51 @@
+
+-- 2. LECTURER TABLE
+CREATE TABLE lecturer(
+    Lec_id CHAR(10) PRIMARY KEY,
+    User_id CHAR(10),
+    Name VARCHAR(100),
+    Gender CHAR(5),
+    NIC CHAR(12),
+    Address VARCHAR(100),
+    Email VARCHAR(30),
+    Phone_no CHAR(10),
+    FOREIGN KEY(User_id) REFERENCES Users(User_id)
+);
+
+INSERT INTO Lecturer (Lec_id, User_id, Name, Gender, NIC, Address, Email, Phone_no) VALUES
+('L001', 'U001', 'Dr. Rajkumar', 'M', '198712345678', 'Colombo', 'rajkumar@fot.ruh.ac.lk', '0711234567'),
+('L002', 'U002', 'Ms. Kamala Devi', 'F', '198912345679', 'Kandy', 'kamala@fot.ruh.ac.lk', '0712345678'),
+('L003', 'U003', 'Mr. Nimal Perera', 'M', '199012345680', 'Galle', 'nimal@fot.ruh.ac.lk', '0713456789'),
+('L004', 'U004', 'Ms. Asha Fernando', 'F', '199112345682', 'Kurunegala', 'asha@fot.ruh.ac.lk', '0714567890'),
+('L005', 'U005', 'Mr. Vijay Nadarajah', 'M', '198312345687', 'Trincomalee', 'vijay@fot.ruh.ac.lk', '0715678901');
+
+
+
+---------lecturer_course table-----------
+CREATE TABLE Lecturer_Course (
+    Lec_id CHAR(10),
+    Course_id CHAR(7),
+    PRIMARY KEY (Lec_id, Course_id),
+    FOREIGN KEY (Lec_id) REFERENCES Lecturer(Lec_id),
+    FOREIGN KEY (Course_id) REFERENCES course(course_id)
+);
+
+INSERT INTO Lecturer_Course (Lec_id, course_id) VALUES
+('L001', 'ENG1222'),
+('L002', 'ICT1212'),
+('L003', 'ICT1222'),
+('L003', 'ICT1233'),
+('L004', 'ICT1242'),
+('L005', 'ICT1253'),
+('L001', 'TCS1212'),
+('L002', 'TMS1233');
+
+
+
+
+ 
+
+
+
+
+
