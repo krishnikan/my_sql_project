@@ -3895,7 +3895,7 @@ from student_final_grade;
 CREATE OR REPLACE VIEW gpa_above3 AS
 SELECT *
 from student_final_grade
-where gpa>3;
+where c_gpa>3;
 
 
  delimiter $$
@@ -3911,7 +3911,7 @@ delimiter ;
 delimiter $$
   create procedure getstugpa(in input_stuid varchar(15))
      begin
-     select student_id,lastname,gpa from student_final_grade
+     select student_id,lastname,c_gpa from student_final_grade
      where student_id = input_stuid;
      end $$
 
