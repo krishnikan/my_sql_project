@@ -175,14 +175,11 @@ INSERT INTO student VALUES
     ("TG/2021/0016","200319210916","Nadeeshan","Herath","ICT","20","Trincomale","Male");
 
 
+CREATE TABLE student_course(student_id char(12),course_id char(7),primary key(student_id,course_id));
 
-
-
-## student couse table  M:N
-
-
-
-
+DELIMITER //
+insert into student_course values (select student_id from student;,select course_id from course;)//
+Delimiter ;
 
 
 

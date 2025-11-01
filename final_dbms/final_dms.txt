@@ -1,6 +1,184 @@
-        /*========================================================
-        =         CRAETE ATTENDANCE TABLE AND ADD DATA           =
-        ========================================================*/
+CREATE DATABASE fot1;
+USE fot1;
+
+
+
+CREATE TABLE Users(
+    User_id CHAR(10) PRIMARY KEY,
+    Username VARCHAR(100),
+    Password VARCHAR(100),
+    Role VARCHAR(50)
+);
+
+INSERT INTO Users (User_id, Username, Password, Role) VALUES
+('U001', 'rajkumar', 'Raj@1234', 'Lecturer'),
+('U002', 'kamala', 'Kam@5678', 'Lecturer'),
+('U003', 'nimal', 'Nim#9012', 'Lecturer'),
+('U004', 'asha', 'Ash@3456', 'Lecturer'),
+('U005', 'vijay', 'Vij7890', 'Lecturer'),
+('U006', 'tharindu', 'Tha@1122', 'Technical_Officer'),
+('U007', 'kasun', 'Kas#3344', 'Technical_Officer'),
+('U008', 'madhu', 'Mad#5566', 'Technical_Officer'),
+('U009', 'saman', 'Sam@7788', 'Technical_Officer'),
+('U010', 'naveen', 'Nav@9900', 'Technical_Officer'),
+('U011', 'Amal', 'Amal@0001', 'Student'),
+('U012', 'Kavindu','Kavindu@0002', 'Student'),
+('U013', 'Sajini','Sajini@0003', 'Student'),
+('U014', 'Nimesha','Nimesha@0004', 'Student'),
+('U015', 'Tharindu','Tharindu@0005', 'Student'),
+('U016', 'Pasan','Pasan@0006', 'Student'),
+('U017', 'Ruwani','Ruwani@0007', 'Student'),
+('U018', 'Ishara','Ishara@0008', 'Student'),
+('U019', 'Supun','Supun@0009', 'Student'),
+('U020','Chathuri','Chathuri@0010', 'Student'),
+('U021','Lakshan','Lakshan@0011', 'Student'),
+('U022','Subash','subash@1234', 'Dean'),
+('U023','silva perera','silva@8734', 'Admin'),
+('U024', 'Dilini', 'Dilini@0012', 'Student'),
+('U025', 'Shean', 'Shean@0013', 'Student'),
+('U026', 'Hashini', 'Hashini@0014', 'Student'),
+('U027', 'Madhushan', 'Madhushan@0015', 'Student'),
+('U028', 'Nadeeshan', 'Nadeeshan@0016', 'Student');
+
+
+CREATE TABLE student
+    (student_id CHAR(12) PRIMARY KEY,
+    NIC CHAR(12),
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    course VARCHAR(3),
+    phone_no char(10),
+    age INT,
+    address VARCHAR(300),
+    gender VARCHAR(10));
+
+
+INSERT INTO student VALUES
+("TG/2023/0001","200319210901","Amal","Perera","ICT","0712345612","21","Colombo","Male"),
+("TG/2023/0002","200319210902","Kavindu","Silva","ICT","0723456723","22","Galle","Male"),
+("TG/2023/0003","200319210903","Sajini","Fernando","ICT","0734567834","20","Matara","Female"),
+("TG/2023/0004","200319210904","Nimesha","Jayasinghe","ICT","0745678945","23","Kandy","Female"),
+("TG/2023/0005","200319210905","Tharindu","Rajapaksha","ICT","0756789056","21","Kurunegala","Male"),
+("TG/2023/0006","200319210906","Pasan","Weerasinghe","ICT","0767890167","22","Colombo","Male"),
+("TG/2023/0007","200319210907","Ruwani","Dissanayake","ICT","0778901278","20","Gampaha","Female"),
+("TG/2023/0008","200319210908","Ishara","Abeywardena","ICT","0789012389","23","Matale","Female"),
+("TG/2023/0009","200319210909","Supun","Bandara","ICT","0790123490","21","Badulla","Male"),
+("TG/2023/0010","200319210910","Chathuri","Gunasekara","ICT","0701234501","22","Hambantota","Female"),
+("TG/2023/0011","200319210911","Lakshan","Karunaratne","ICT","0712348912","23","Anuradhapura","Male");
+
+
+
+ALTER TABLE student DROP phone_no;
+
+CREATE TABLE student_phone_no
+    (student_id char(12),phone_no char(10),
+    PRIMARY KEY(student_id,phone_no),
+    FOREIGN KEY(student_id) REFERENCES student(student_id));
+
+INSERT INTO student_phone_no (student_id, phone_no) VALUES
+("TG/2023/0001", "0712345612"),
+("TG/2023/0001", "0771112233"),
+("TG/2023/0002", "0762223344"),
+("TG/2023/0003", "0734567834"),
+("TG/2023/0003", "0753334455"),
+("TG/2023/0004", "0745678945"),
+("TG/2023/0005", "0756789056"),
+("TG/2023/0005", "0715556677"),
+("TG/2023/0006", "0786667788"),
+("TG/2023/0007", "0778901278"),
+("TG/2023/0007", "0797778899"),
+("TG/2023/0008", "0728889900"),
+("TG/2023/0009", "0790123490"),
+("TG/2023/0010", "0710001122"),
+("TG/2023/0011", "0712348912"),
+("TG/2023/0011", "0751112233");
+
+INSERT INTO student VALUES
+    ("TG/2022/0012","200319210912","Dilini","Wijesigha","ICT","21","Alawwa","Female"),
+    ("TG/2022/0013","200319210913","Shean","Ekanayaka","ICT","22","negambo","Male"),
+    ("TG/2021/0014","200319210914","Hashini","Rathanayake","ICT","21","Kegalle","Female"),
+    ("TG/2022/0015","200319210915","Madhushan","Jayavarthana","ICT","23","polgahawela","Male"),
+    ("TG/2021/0016","200319210916","Nadeeshan","Herath","ICT","20","Trincomale","Male");
+
+
+
+CREATE TABLE course (course_id CHAR(7) PRIMARY KEY,name VARCHAR(50),credit INT,theory INT,practical INT);
+
+INSERT INTO course (course_id, name, credit, theory, practical) VALUES
+("ENG1222", "English II", 2, 2, null),
+("ICT1212", "Database Management Systems", 2, 2, null),
+("ICT1222", "Database Management Systems Practicum", 2, null, 4),
+("ICT1233", "Server Side Web Development", 3, 2, 2),
+("ICT1242", "Computer Architecture", 2, 2, null),
+("ICT1253", "Computer Networks", 3, 2, 2),
+("TCS1212", "Fundamentals of Management", 2, 2, null),
+("TMS1233", "Discrete Mathematics", 3, 3, null);
+
+CREATE TABLE student_course(student_id char(12),course_id char(7),primary key(student_id,course_id));
+
+
+INSERT INTO student_course (student_id, course_id)
+SELECT student_id, course_id
+FROM student
+JOIN course;
+
+
+CREATE TABLE lecturer(
+    Lec_id CHAR(10) PRIMARY KEY,
+    User_id CHAR(10),
+    Name VARCHAR(100),
+    Gender CHAR(5),
+    NIC CHAR(12),
+    Address VARCHAR(100),
+    Email VARCHAR(30),
+    Phone_no CHAR(10),
+    FOREIGN KEY(User_id) REFERENCES Users(User_id)
+);
+
+INSERT INTO Lecturer (Lec_id, User_id, Name, Gender, NIC, Address, Email, Phone_no) VALUES
+('L001', 'U001', 'Dr. Rajkumar', 'M', '198712345678', 'Colombo', 'rajkumar@fot.ruh.ac.lk', '0711234567'),
+('L002', 'U002', 'Ms. Kamala Devi', 'F', '198912345679', 'Kandy', 'kamala@fot.ruh.ac.lk', '0712345678'),
+('L003', 'U003', 'Mr. Nimal Perera', 'M', '199012345680', 'Galle', 'nimal@fot.ruh.ac.lk', '0713456789'),
+('L004', 'U004', 'Ms. Asha Fernando', 'F', '199112345682', 'Kurunegala', 'asha@fot.ruh.ac.lk', '0714567890'),
+('L005', 'U005', 'Mr. Vijay Nadarajah', 'M', '198312345687', 'Trincomalee', 'vijay@fot.ruh.ac.lk', '0715678901');
+
+
+CREATE TABLE Lecturer_Course (
+    Lec_id CHAR(10),
+    Course_id CHAR(7),
+    PRIMARY KEY (Lec_id, Course_id),
+    FOREIGN KEY (Lec_id) REFERENCES Lecturer(Lec_id),
+    FOREIGN KEY (Course_id) REFERENCES course(course_id)
+);
+
+INSERT INTO Lecturer_Course (Lec_id, course_id) VALUES
+('L001', 'ENG1222'),
+('L002', 'ICT1212'),
+('L003', 'ICT1222'),
+('L003', 'ICT1233'),
+('L004', 'ICT1242'),
+('L005', 'ICT1253'),
+('L001', 'TCS1212'),
+('L002', 'TMS1233');
+
+
+CREATE TABLE Technical_officer (
+    To_id CHAR(10) PRIMARY KEY,
+    User_id CHAR(10),
+    Name VARCHAR(100),
+    Gender CHAR(5),
+    NIC CHAR(12),
+    Address VARCHAR(100),
+    Phone_no CHAR(10),
+    FOREIGN KEY (User_id) REFERENCES Users(User_id)
+);
+
+INSERT INTO Technical_officer (To_id, User_id, Name, Gender, NIC, Address, Phone_no) VALUES
+('T001', 'U006', 'Mr. Tharindu Gamage', 'M', '199512345688', 'Colombo', '0721234567'),
+('T002', 'U007', 'Mr. Kasun Wijesinghe', 'M', '199412345689', 'Kandy', '0722345678'),
+('T003', 'U008', 'Ms. Madhu Ranaweera', 'F', '199612345690', 'Matara', '0723456789'),
+('T004', 'U009', 'Mr. Saman Liyanage', 'M', '199312345691', 'Jaffna', '0724567890'),
+('T005', 'U010', 'Mr. Naveen Peris', 'M', '199212345692', 'Kurunegala', '0725678901');
 
 CREATE TABLE Attendance(
     attendance_id char(8) PRIMARY KEY,
@@ -2418,56 +2596,1361 @@ INSERT INTO Attendance (attendance_id, student_id, course_id, week_no, session_t
 
 UPDATE ATTENDANCE SET time_allocation=2;
 
+UPDATE attendance 
+SET status = "present" 
+WHERE status = "medical";
 
-        /*========================================================
-        =        FIND THE ONE STUDENT,COURSE ATTENDANCE          =
-        ========================================================*/
 
-DELIMITER //
+UPDATE attendance SET status="medical" where attendance_id IN("ATT-0005","ATT-0010","ATT-0015","ATT-0020","ATT-0025","ATT-0100");
 
-CREATE PROCEDURE STUDENT_COURSE_ATT(IN TG CHAR(12), IN c_id CHAR(7))
+UPDATE attendance SET status="medical" where attendance_id IN("ATT-0200","ATT-0300","ATT-0400","ATT-0700","ATT-1000");
+
+
+
+CREATE TABLE Medical(
+medical_id VARCHAR(10) PRIMARY KEY,
+student_id VARCHAR(12), 
+course_id VARCHAR(10),
+week_no INT CHECK(week_no BETWEEN 1 AND 15),
+session_type ENUM('theory', 'practical'), 
+date DATE, time_allocation INT CHECK(time_allocation > 0), 
+reason VARCHAR(100), status ENUM('approved', 'rejected', 'pending') DEFAULT 'approved',
+FOREIGN KEY(student_id) REFERENCES Student(student_id),
+FOREIGN KEY(course_id) REFERENCES Course(course_id) );
+
+INSERT INTO Medical
+(medical_id, student_id, course_id, week_no, session_type, date, time_allocation, reason, status)
+VALUES
+('M0001', 'TG/2023/0005', 'ENG1222', 1, 'theory', '2025-02-07', 2, 'fever', 'approved'),
+('M0002', 'TG/2023/0010', 'ENG1222', 1, 'theory', '2025-02-07', 2, 'fever', 'approved'),
+('M0003', 'TG/2023/0004', 'ICT1212', 1, 'theory', '2025-02-06', 2, 'fever', 'approved'),
+('M0004', 'TG/2023/0009', 'ICT1212', 1, 'theory', '2025-02-06', 2, 'fever', 'approved'),
+('M0005', 'TG/2023/0003', 'ICT1222', 1, 'practical', '2025-02-06', 4, 'not proper reason', 'rejected'),
+('M0006', 'TG/2023/0001', 'TMS1233', 1, 'theory', '2025-02-05', 3, 'fever', 'approved'),
+('M0007', 'TG/2023/0002', 'TCS1212', 2, 'theory', '2025-02-14', 2, 'fever', 'approved'),
+('M0008', 'TG/2023/0003', 'ICT1253', 3, 'practical', '2025-02-18', 2, 'fever', 'approved'),
+('M0009', 'TG/2023/0004', 'ICT1253', 4, 'theory', '2025-02-25', 2, 'fever', 'approved'),
+('M0010', 'TG/2023/0007', 'ICT1233', 7, 'theory', '2025-03-17', 2, 'fever', 'approved'),
+('M0011', 'TG/2023/0010', 'ENG1222', 10, 'theory', '2025-04-11', 2, 'fever', 'approved');
+
+alter table student
+add column user_id VARCHAR(4);
+
+
+update student
+     set user_id=("u028")
+     where student_id="TG/2021/0016";
+
+
+ update student
+     set user_id=("u024")
+     where student_id="TG/2022/0012";
+
+
+ update student
+     set user_id=("u025")
+     where student_id="TG/2022/0013";
+
+
+ update student
+     set user_id=("u027")
+     where student_id="TG/2022/0015";
+
+
+     update student
+     set user_id=("U011")
+     where student_id="TG/2023/0001";
+
+
+ update student
+     set user_id=("U012")
+     where student_id="TG/2023/0002";
+
+
+ update student
+     set user_id=("U013")
+     where student_id="TG/2023/0003";
+
+
+ update student
+     set user_id=("U014")
+     where student_id="TG/2023/0004";
+
+
+ update student
+     set user_id=("U015")
+     where student_id="TG/2023/0005";
+
+
+update student
+     set user_id=("U016")
+     where student_id="TG/2023/0006";
+
+
+ update student
+     set user_id=("U017")
+     where student_id="TG/2023/0007";
+
+
+ update student
+     set user_id=("U018")
+     where student_id="TG/2023/0008";
+
+
+ update student
+     set user_id=("U019")
+     where student_id="TG/2023/0009";
+
+
+ update student
+     set user_id=("U020")
+     where student_id="TG/2023/0010";
+
+
+ update student
+     set user_id=("U021")
+     where student_id="TG/2023/0011";
+
+
+
+/*=====================================================================*/
+
+create table ENG1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+create table ICT1222(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table ICT1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table ICT1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table ICT1242(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table ICT1253(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table TCS1212(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+ create table TMS1233(student_id varchar(12) primary key,course_id varchar(7),quizz float,assessment float,mid_p float,mid_t float,end_p float,end_t float,total_mark float,grade varchar(2));
+
+
+
+alter table eng1222
+  drop column course_id;
+
+
+alter table ict1222
+drop column course_id;
+
+alter table ICT1212
+drop column course_id;
+
+
+alter table ict1233
+drop column course_id;
+
+alter table ICT1242
+drop column course_id;
+
+
+ alter table ICT1253
+ drop column course_id;
+
+alter table TCS1212
+drop column course_id;
+
+ alter table TMS1233
+ drop column course_id;
+
+
+alter table ict1212
+change total_mark final_mark int;
+
+
+alter table ict1222
+change total_mark final_mark int;
+
+
+
+alter table ict1233
+change total_mark final_mark int;
+
+
+alter table ict1242
+change total_mark final_mark int;
+
+
+alter table ict1253
+change total_mark final_mark int;
+
+
+alter table TCS1212
+change total_mark final_mark int;
+
+
+alter table eng1222
+change total_mark final_mark int;
+
+alter table tms1233
+change total_mark final_mark int;
+
+alter table eng1222
+ add column CA_Final int after mid_t;
+
+
+alter table ict1212
+ add column CA_Final int after mid_t;
+
+
+alter table ict1222
+add column CA_Final int after mid_t;
+
+
+alter table ict1233
+add column CA_Final int after mid_t;
+
+
+alter table ict1242
+add column CA_Final int after mid_t;
+
+alter table ict1253
+add column CA_Final int after mid_t;
+
+
+ alter table tcs1212
+ add column CA_Final int after mid_t;
+
+
+ alter table tms1233
+  add column CA_Final int after mid_t;
+  
+ 
+
+
+insert into eng1222(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+ update eng1222
+ set ca_final=(quizz + assessment + mid_t)/3;
+
+
+
+  update eng1222
+set final_mark=(ca_final+end_t)/2;
+
+update eng1222
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end;
+
+insert into ict1212(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+
+  update ict1212
+set ca_final = (quizz + assessment + mid_t)/3;
+
+update ict1212
+set final_mark = (ca_final+end_t)/2;
+
+
+update ict1212
+set grade = case
+when final_mark >=85 then "A+"
+when final_mark >=75 then "A"
+when final_mark >=70 then "A-"
+when final_mark >=65 then "B+"
+when final_mark >=60 then "B"
+when final_mark >=55 then "B-"
+when final_mark >=50 then "C+"
+when final_mark >=45 then "C"
+when final_mark >=40 then "C-"
+when final_mark >=35 then "D"
+else "F"
+end;
+
+ insert into ict1222 (student_id,quizz,assessment,mid_p,end_p)
+values("TG/2023/0001",65,67,78,89),
+("TG/2023/0002",75,76,87,89),
+("TG/2023/0003",73,78,64,38),
+("TG/2023/0004",37,87,46,83),
+("TG/2023/0005",65,87,89,56),
+("TG/2023/0006",56,78,98,65),
+("TG/2023/0007",79,94,68,96),
+("TG/2023/0008",97,49,86,69),
+("TG/2023/0009",65,76,77,88),
+("TG/2023/0010",56,67,77,88),
+("TG/2023/0011",75,76,87,89);
+
+
+update ict1222
+ set ca_final = (quizz + assessment + mid_p)/3;
+
+ update ict1222
+set final_mark = (ca_final + end_p)/2;
+
+
+update ict1222
+     set grade = case
+     when final_mark >=85 then "A+"
+     when final_mark >=75 then "A"
+     when final_mark >=70 then "A-"
+     when final_mark >=65 then "B+"
+     when final_mark >=60 then "B"
+     when final_mark >=55 then "B-"
+     when final_mark >=50 then "C+"
+     when final_mark >=45 then "C"
+     when final_mark >=40 then "C-"
+     when final_mark >=35 then "D"
+    else "F"
+end;
+
+
+insert into ict1233(student_id,quizz,assessment,mid_p,end_p,end_t)
+     values("TG/2023/0001",55,67,86,98,67),
+     ("TG/2023/0002",67,56,76,88,78),
+     ("TG/2023/0003",77,66,77,88,99),
+     ("TG/2023/0004",45,57,23,67,39),
+     ("TG/2023/0005",45,66,67,45,93),
+     ("TG/2023/0006",54,66,76,54,39),
+     ("TG/2023/0007",58,68,75,78,67),
+     ("TG/2023/0008",45,67,23,67,39),
+     ("TG/2023/0009",37,36,76,48,78),
+     ("TG/2023/0010",48,62,61,42,34),
+     ("TG/2023/0011",67,56,45,34,23);
+
+
+alter table ict1233
+     add column project int
+     after mid_t;
+
+
+     update ict1233
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1233
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1233
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1233
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1233
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1233
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1233
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1233
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1233
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+     update ict1233
+     set ca_final = (quizz + assessment + mid_p + project)/4;
+
+
+ update ict1233
+     set final_mark = (ca_final+end_p+end_t)/3;
+
+
+update ict1233
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+
+
+
+      alter table ict1222
+     add column project int
+     after mid_t;
+
+
+     update ict1222
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1222
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1222
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1222
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1222
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1222
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1222
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1222
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1222
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+
+
+ update ict1222
+set ca_final=(quizz+assessment+mid_p+project)/4;
+
+
+update ict1222
+     set final_mark=(ca_final+end_p)/2;
+
+
+ update ict1222
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+
+ insert into ict1242(student_id,quizz,assessment,mid_t,end_t)
+     values("TG/2023/0001",67,78,98,67),
+     ("TG/2023/0002",77,68,88,67),
+     ("TG/2023/0003",75,89,67,76),
+     ("TG/2023/0004",98,89,76,54),
+     ("TG/2023/0005",56,76,34,45),
+     ("TG/2023/0006",67,55,67,90),
+     ("TG/2023/0007",53,78,54,94),
+     ("TG/2023/0008",43,65,78,56),
+     ("TG/2023/0009",71,92,83,51),
+     ("TG/2023/0010",91,82,73,64),
+     ("TG/2023/0011",91,82,73,64);
+
+
+     update ict1242
+     set ca_final = (quizz + assessment + mid_t)/3;
+
+     update ict1242
+     set final_mark = (ca_final + end_t)/2;
+
+
+     update ict1242
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+	 
+	 insert into ict1253(student_id,quizz,assessment,mid_p,mid_t,end_t,end_p)
+     values("TG/2023/0001",56,89,65,54,49,48),
+     ("TG/2023/0002",47,87,81,49,91,79),
+     ("TG/2023/0003",45,98,32,13,78,74),
+     ("TG/2023/0004",67,82,74,49,92,43),
+     ("TG/2023/0005",67,82,74,49,92,43),
+     ("TG/2023/0006",45,98,32,13,78,74),
+     ("TG/2023/0007",47,87,81,49,23,79),
+     ("TG/2023/0008",56,89,65,23,49,48),
+     ("TG/2023/0009",89,23,62,81,39,48),
+     ("TG/2023/0010",18,29,39,31,38,48),
+     ("TG/2023/0011",48,59,69,11,28,58);
+	 
+	 
+	 alter table ict1253
+     add column project int
+     after mid_t;
+
+
+     update ict1253
+     set project=45
+     where student_id="TG/2023/0001";
+
+
+ update ict1253
+     set project=56
+     where student_id="TG/2023/0002";
+
+
+ update ict1253
+     set project=67
+     where student_id="TG/2023/0003";
+
+
+ update ict1253
+     set project=87
+     where student_id="TG/2023/0004";
+
+
+ update ict1253
+     set project=67
+     where student_id="TG/2023/0005";
+
+
+ update ict1253
+     set project=69
+     where student_id="TG/2023/0006";
+
+
+ update ict1253
+     set project=78
+     where student_id="TG/2023/0007";
+
+
+ update ict1253
+     set project=90
+     where student_id="TG/2023/0008";
+
+
+ update ict1253
+     set project=98
+     where student_id="TG/2023/0009";
+
+
+ update ict1253
+     set project=48
+     where student_id="TG/2023/0010";
+
+
+ update ict1253
+     set project=98
+     where student_id="TG/2023/0011";
+
+
+update ict1253
+     set quizz=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set project=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set mid_p=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set assessment=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set mid_t=5
+     where student_id="TG/2023/0005";
+
+      update ict1253
+     set end_t=57
+     where student_id="TG/2023/0005";
+
+     update ict1253
+     set end_p=53
+     where student_id="TG/2023/0005";
+
+
+
+
+
+     update ict1253
+     set ca_final = (quizz + assessment + mid_p + mid_t + project)/5;
+
+     update ict1253
+     set final_mark = (ca_final + end_p + end_t)/3;
+
+
+update ict1253
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+	 
+	 insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+values("TG/2023/0001",70,40,62,56),
+("TG/2023/0002",73,34,67,56),
+("TG/2023/0003",55,70,72,96),
+("TG/2023/0004",50,67,75,67),
+("TG/2023/0005",70,40,62,56),
+("TG/2023/0006",71,68,87,93),
+("TG/2023/0007",65,78,67,56),
+("TG/2023/0008",89,98,78,87),
+("TG/2023/0009",50,67,75,67),
+("TG/2023/0010",73,34,67,56),
+ ("TG/2023/0011",65,78,67,56);
+
+  update tms1233
+      set ca_final = (quizz + assessment + mid_t)/3;
+
+
+ update tms1233
+     set final_mark = (ca_final + end_t)/2;
+
+
+update tms1233
+          set grade = case
+          when final_mark >=85 then "A+"
+          when final_mark >=75 then "A"
+          when final_mark >=70 then "A-"
+          when final_mark >=65 then "B+"
+          when final_mark >=60 then "B"
+          when final_mark >=55 then "B-"
+          when final_mark >=50 then "C+"
+          when final_mark >=45 then "C"
+          when final_mark >=40 then "C-"
+          when final_mark >=35 then "D"
+         else "F"
+     end;
+	 
+	 
+	 insert into tms1233(student_id,quizz,assessment,mid_t,end_t)
+     values("TG/2021/0014",67,34,29,78),
+     ("TG/2021/0016",63,39,59,78),
+     ("TG/2022/0012",62,49,19,56),
+     ("TG/2022/0013",62,49,19,56);
+
+     update tms1233
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tms1233
+     set final_mark=(ca_final+end_t)/2;
+
+      update tms1233
+               set grade = case
+               when final_mark >=85 then "A+"
+               when final_mark >=75 then "A"
+               when final_mark >=70 then "A-"
+               when final_mark >=65 then "B+"
+               when final_mark >=60 then "B"
+               when final_mark >=55 then "B-"
+               when final_mark >=50 then "C+"
+               when final_mark >=45 then "C"
+               when final_mark >=40 then "C-"
+               when final_mark >=35 then "D"
+              else "F"
+          end;
+
+	 
+	 update eng1222
+     set quizz=5
+     where student_id="TG/2023/0001";
+
+
+ update eng1222
+     set mid_t=2
+     where student_id="TG/2023/0001";
+
+
+ update eng1222
+     set assessment=4
+     where student_id="TG/2023/0001";
+
+
+     update ict1222
+     set mid_p=5
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set end_p=50
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set project=5
+     where student_id="TG/2023/0002";
+
+       update ict1222
+     set quizz=5
+     where student_id="TG/2023/0002";
+
+
+       update ict1222
+     set mid_p=5
+     where student_id="TG/2023/0002";
+
+
+       update ict1212
+     set mid_t=5
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set end_t=52
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set assessment=5
+     where student_id="TG/2023/0003";
+
+       update ict1212
+     set quizz=5
+     where student_id="TG/2023/0003";
+
+      update ict1212
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update ict1212
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+     update ict1233
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set project=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set mid_p=5
+     where student_id="TG/2023/0004";
+
+      update ict1233
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+      
+
+      update ict1233
+     set end_t=57
+     where student_id="TG/2023/0004";
+
+     update ict1233
+     set end_p=53
+     where student_id="TG/2023/0004";
+
+     update ict1233
+     set ca_final=(quizz+assessment++mid_p+project)/4;
+
+
+ update ict1233
+     set final_mark=(ca_final+end_t+end_P)/3;
+
+
+     update ict1242
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update ict1242
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update ict1242
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update ict1242
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+
+
+
+
+      update tcs1212
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update tcs1212
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update tcs1212
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tcs1212
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+
+
+
+ update tms1233
+     set mid_t=5
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set end_t=52
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set assessment=5
+     where student_id="TG/2023/0004";
+
+       update tms1233
+     set quizz=5
+     where student_id="TG/2023/0004";
+
+      update tms1233
+     set ca_final=(quizz+assessment+mid_t)/3;
+
+
+ update tms1233
+     set final_mark=(ca_final+end_t)/2;
+
+
+
+
+
+CREATE OR REPLACE VIEW AttendanceSummary AS
+SELECT
+    a.student_id,
+    a.course_id,
+
+        SUM(
+        CASE 
+            WHEN a.status = 'present' THEN a.time_allocation
+            WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+            ELSE 0
+        END
+    ) AS attended_hours,
+
+    SUM(a.time_allocation) AS total_hours,
+
+    ROUND(
+        SUM(
+            CASE 
+                WHEN a.status = 'present' THEN a.time_allocation
+                WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+                ELSE 0
+            END
+        ) / SUM(a.time_allocation) * 100, 2
+    ) AS percentage,
+
+    CASE 
+        WHEN ROUND(
+            SUM(
+                CASE 
+                    WHEN a.status = 'present' THEN a.time_allocation
+                    WHEN a.status = 'absent' AND m.status = 'approved' THEN a.time_allocation
+                    ELSE 0
+                END
+            ) / SUM(a.time_allocation) * 100, 2
+        ) >= 80 THEN 'Eligible' 
+        ELSE 'not eligible' 
+    END AS eligible
+
+FROM Attendance a
+LEFT JOIN Medical m
+    ON a.student_id = m.student_id
+    AND a.course_id = m.course_id
+    AND a.week_no = m.week_no
+    AND a.session_type = m.session_type
+    AND m.status = 'approved'  
+GROUP BY a.student_id, a.course_id;
+
+
+
+create view attendance_below_80 as
+select 
+	student_id,course_id
+	from AttendanceSummary
+	where percentage<80.00;
+
+
+
+create view attendance_above_80 as
+select 
+	student_id,course_id
+	from AttendanceSummary
+	where percentage>=80.00;
+	
+	
+	DELIMITER //
+
+CREATE PROCEDURE batch_summary_by_course(IN input_course_id VARCHAR(12))
 BEGIN
     SELECT 
-        a.student_id,
-        c.name,
-        a.course_id,
-	a.week_no,
-	a.date,
-	a.status
-    FROM 
-	attendance AS a
-    JOIN 
-        course AS c 
-    ON a.course_id = c.course_id
-    WHERE a.student_id = TG AND c.course_id = c_id;
-
+        student_id,
+        course_id,
+        attended_hours,
+        total_hours,
+        percentage,
+        eligible
+    FROM AttendanceSummary
+    WHERE course_id = input_course_id
+    ORDER BY student_id;
 END //
 
 DELIMITER ;
 
-CALL STUDENT_COURSE_ATT('TG/2023/0001', 'TMS1233');
+
+DELIMITER //
+
+CREATE PROCEDURE student_summary(IN input_student_id VARCHAR(12))
+BEGIN
+    SELECT 
+        course_id,
+        attended_hours,
+        total_hours,
+        percentage,
+        eligible
+    FROM AttendanceSummary
+    WHERE student_id = input_student_id
+    ORDER BY course_id;
+END //
+
+DELIMITER ;
 
 
-/*mysql> CALL STUDENT_COURSE_ATT('TG/2023/0001', 'TMS1233');
-+--------------+----------------------+-----------+---------+------------+---------+
-| student_id   | name                 | course_id | week_no | date       | status  |
-+--------------+----------------------+-----------+---------+------------+---------+
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       1 | 2025-02-05 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       2 | 2025-02-12 | absent  |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       3 | 2025-02-19 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       4 | 2025-02-26 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       5 | 2025-03-05 | absent  |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       6 | 2025-03-12 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       7 | 2025-03-19 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       8 | 2025-03-26 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |       9 | 2025-04-02 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      10 | 2025-04-09 | medical |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      11 | 2025-04-16 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      12 | 2025-04-23 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      13 | 2025-04-30 | absent  |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      14 | 2025-05-07 | present |
-| TG/2023/0001 | Discrete Mathematics | TMS1233   |      15 | 2025-05-14 | present |
-+--------------+----------------------+-----------+---------+------------+---------+
-*/
-    
+
+DELIMITER //
+CREATE PROCEDURE GetStudentCourseDetail(IN regNo VARCHAR(12), IN courseCode VARCHAR(12))
+BEGIN
+    SELECT * FROM AttendanceSummary
+    WHERE student_id = regNo AND course_id = courseCode;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE GetTheoryPracticalSummaryWithMedical(IN courseCode VARCHAR(10), IN mode VARCHAR(10))
+BEGIN
+    IF mode = 'theory' THEN
+        SELECT * FROM AttendanceSummary 
+        WHERE course_id = courseCode 
+          AND course_id IN (
+              SELECT course_id FROM Attendance WHERE session_type='theory'
+          );
+    ELSEIF mode = 'practical' THEN
+        SELECT * FROM AttendanceSummary 
+        WHERE course_id = courseCode 
+          AND course_id IN (
+              SELECT course_id FROM Attendance WHERE session_type='practical'
+          );
+    ELSE
+        SELECT * FROM AttendanceSummary
+        WHERE course_id = courseCode;
+    END IF;
+END //
+DELIMITER ;
+	 
+
+CREATE VIEW course_eng1222_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from eng1222;
+
+
+CREATE VIEW course_ict1212_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1212;
+
+CREATE VIEW course_ict1222_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1222;
+
+CREATE VIEW course_ict1233_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1222;
+
+CREATE VIEW course_ict1242_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1242;
+
+
+CREATE VIEW course_ict1253_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from ict1253;
+
+CREATE VIEW course_tcs1212_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from tcs1212;
+
+CREATE VIEW course_tms1233_eligibility AS 
+    select student_id,ca_final,
+    case
+        when CA_final>=40 THEN "EL"
+        else  "El"
+    end
+    as ca_status
+    from tms1233;
+
+select * from course_eng1222_eligibility;
+select * from course_ict1212_eligibility;
+select * from course_ict1222_eligibility;
+select * from course_ict1233_eligibility;
+select * from course_ict1242_eligibility;
+select * from course_ict1253_eligibility;
+select * from course_tcs1212_eligibility;
+select * from course_tms1233_eligibility;
+
+
+CREATE VIEW Student_course_eligibility As
+    SELECT
+        a.student_id,
+        a.ca_status as ENG1222,
+        b.ca_status as ICT1212,
+        c.ca_status as ICT1222,
+        d.ca_status as ICT1233,
+        e.ca_status as ICT1242,
+        f.ca_status as ICT1253,
+        g.ca_status as TCS1212,
+        h.ca_status as TMS1233
+
+    FROM course_eng1222_eligibility as a
+    JOIN 
+    course_ICT1212_eligibility as b on a.student_id=b.student_id
+    JOIN 
+    course_ICT1222_eligibility as c on a.student_id=c.student_id
+    JOIN 
+    course_ICT1233_eligibility as d on a.student_id=d.student_id
+    JOIN 
+    course_ICT1242_eligibility as e on a.student_id=e.student_id
+    JOIN 
+    course_ICT1253_eligibility as f on a.student_id=f.student_id
+    JOIN 
+    course_TCS1212_eligibility as g on a.student_id=g.student_id
+    JOIN 
+    course_TMS1233_eligibility as h on a.student_id=h.student_id;
+	
+	
+	
+	CREATE VIEW student_attendance_eligibility AS
+SELECT 
+    student_id,
+    MAX(CASE WHEN course_id = 'ENG1222' THEN eligible END) AS ENG1222,
+    MAX(CASE WHEN course_id = 'ICT1212' THEN eligible END) AS ICT1212,
+    MAX(CASE WHEN course_id = 'ICT1222' THEN eligible END) AS ICT1222,
+    MAX(CASE WHEN course_id = 'ICT1233' THEN eligible END) AS ICT1233,
+    MAX(CASE WHEN course_id = 'ICT1242' THEN eligible END) AS ICT1242,
+    MAX(CASE WHEN course_id = 'ICT1253' THEN eligible END) AS ICT1253,
+    MAX(CASE WHEN course_id = 'TCS1212' THEN eligible END) AS TCS1212,
+    MAX(CASE WHEN course_id = 'TMS1233' THEN eligible END) AS TMS1233
+FROM AttendanceSummary
+GROUP BY student_id;
+
+
+ CREATE OR REPLACE VIEW student_final_grade AS
+SELECT 
+    s.student_id,
+    s.lastname,
+
+    eng.grade AS eng1222,
+    a.grade AS ict1212,
+    b.grade AS ict1222,
+    c.grade AS ict1233,
+    d.grade AS ict1242,
+    e.grade AS ict1253,
+    f.grade AS tcs1212,
+    g.grade AS tms1233,
+
+   
+    ROUND((
+        (
+            
+            (CASE eng.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE a.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+            
+            (CASE b.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE c.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE d.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE e.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+            +
+            
+            (CASE f.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 2
+            +
+           
+            (CASE g.grade
+                WHEN 'A+' THEN 4 WHEN 'A' THEN 4 WHEN 'A-' THEN 3.7
+                WHEN 'B+' THEN 3.3 WHEN 'B' THEN 3 WHEN 'B-' THEN 2.7
+                WHEN 'C+' THEN 2.3 WHEN 'C' THEN 2 WHEN 'C-' THEN 1.7
+                WHEN 'D' THEN 1.3 ELSE 0 END) * 3
+        ) / 19  -- total credits
+    ), 2) AS gpa  -- rounded to 2 decimals
+
+FROM student s
+JOIN eng1222 eng ON s.student_id = eng.student_id
+JOIN ict1212 a ON s.student_id = a.student_id
+JOIN ict1222 b ON s.student_id = b.student_id
+JOIN ict1233 c ON s.student_id = c.student_id
+JOIN ict1242 d ON s.student_id = d.student_id
+JOIN ict1253 e ON s.student_id = e.student_id
+JOIN tcs1212 f ON s.student_id = f.student_id
+JOIN tms1233 g ON s.student_id = g.student_id;
+
+
+ CREATE OR REPLACE VIEW student_final_gpa AS
+SELECT student_id,lastname,gpa
+from student_final_grade;
+
+CREATE OR REPLACE VIEW gpa_above3 AS
+SELECT *
+from student_final_grade
+where c_gpa>3;
+
+
+ delimiter $$
+  create procedure getstumark(in input_stuid varchar(15))
+     begin
+     select * from student_final_grade
+     where student_id = input_stuid;
+     end $$
+
+delimiter ;
+
+
+delimiter $$
+  create procedure getstugpa(in input_stuid varchar(15))
+     begin
+     select student_id,lastname,c_gpa from student_final_grade
+     where student_id = input_stuid;
+     end $$
+
+delimiter ;
+
+CREATE TABLE Guardian (
+    Guardian_ID CHAR(10) NOT NULL,
+    Name VARCHAR(100),
+    Relationship VARCHAR(50),
+    Phone_No CHAR(10),
+    Email VARCHAR(100),
+    Address VARCHAR(255),
+    Occupation VARCHAR(100),
+    student_id CHAR(12),
+    PRIMARY KEY(Guardian_ID,student_id),
+    FOREIGN KEY(student_id) REFERENCES student(student_id));
+
+INSERT INTO Guardian 
+(Guardian_ID, Name, Relationship, Phone_No, Email, Address, Occupation, student_id)
+VALUES
+('G001', 'Ravi Kumar', 'Father', '0771234567', 'ravi.kumar@gmail.com', 'Colombo, Sri Lanka', 'Teacher', 'TG/2023/0001'),
+('G002', 'Sita Devi', 'Mother', '0719876543', 'sita.devi@gmail.com', 'Kandy, Sri Lanka', 'Nurse', 'TG/2023/0002'),
+('G003', 'Arun Raj', 'Uncle', '0756543210', 'arun.raj@yahoo.com', 'Jaffna, Sri Lanka', 'Engineer', 'TG/2023/0003'),
+('G004', 'Meena Lakshmi', 'Sister', '0762345678', 'meena.lakshmi@gmail.com', 'Batticaloa, Sri Lanka', 'Accountant', 'TG/2023/0004'),
+('G005', 'Kumarasamy', 'Grandfather', '0728765432', 'kumarasamy@gmail.com', 'Trincomalee, Sri Lanka', 'Retired Officer', 'TG/2023/0005'),
+('G006', 'Shanthi Raj', 'Mother', '0781112233', 'shanthi.raj@gmail.com', 'Galle, Sri Lanka', 'Doctor', 'TG/2023/0006'),
+('G007', 'Murugan', 'Father', '0792223344', 'murugan@gmail.com', 'Vavuniya, Sri Lanka', 'Farmer', 'TG/2023/0007'),
+('G008', 'Priya Selvi', 'Aunt', '0703334455', 'priya.selvi@yahoo.com', 'Mannar, Sri Lanka', 'Bank Clerk', 'TG/2023/0008'),
+('G009', 'Balachandran', 'Brother', '0714445566', 'balachandran@gmail.com', 'Matara, Sri Lanka', 'Driver', 'TG/2023/0009'),
+('G010', 'Anjali Devi', 'Mother', '0725556677', 'anjali.devi@gmail.com', 'Negombo, Sri Lanka', 'Teacher', 'TG/2023/0010'),
+('G011', 'Selvaraj', 'Father', '0736667788', 'selvaraj@gmail.com', 'Kilinochchi, Sri Lanka', 'Businessman', 'TG/2023/0011'),
+('G012', 'Kumari Perera', 'Mother', '0778899001', 'kumari.perera@gmail.com', 'Alawwa, Sri Lanka', 'Teacher', 'TG/2022/0012'),
+('G013', 'Ekanayaka Bandara', 'Father', '0712233445', 'ekanayaka.bandara@gmail.com', 'Negombo, Sri Lanka', 'Police Officer', 'TG/2022/0013'),
+('G014', 'Rathnayake Sunil', 'Father', '0753344556', 'rathnayake.sunil@gmail.com', 'Kegalle, Sri Lanka', 'Farmer', 'TG/2021/0014'),
+('G015', 'Jayavarthana Malani', 'Mother', '0764455667', 'malani.jaya@gmail.com', 'Polgahawela, Sri Lanka', 'Nurse', 'TG/2022/0015'),
+('G016', 'Herath Nimal', 'Father', '0725566778', 'nimal.herath@gmail.com', 'Trincomalee, Sri Lanka', 'Businessman', 'TG/2021/0016');
+
+
+
+
+
 

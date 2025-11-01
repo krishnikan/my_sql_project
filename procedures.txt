@@ -1,0 +1,26 @@
+========================================================================================
+                          find one student mark when input student student_id
+========================================================================================
+ 
+ delimiter $$
+  create procedure getstumark(in input_stuid varchar(15))
+     begin
+     select * from student_final_grade
+     where student_id = input_stuid;
+     end $$
+
+delimiter ;
+
+===============================================================================================
+to get student id and lastname and gpa
+===============================================================================================
+
+
+delimiter $$
+  create procedure getstuc_gpa(in input_stuid varchar(15))
+     begin
+     select student_id,lastname,gpa from student_final_grade
+     where student_id = input_stuid;
+     end $$
+
+delimiter ;
